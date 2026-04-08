@@ -43,7 +43,7 @@ export default function HomePage() {
 
           <div className="space-y-6">
             <div className="rounded-[2rem] bg-white p-8 shadow-xl">
-              <div className="text-sm text-slate-500">Common challenges</div>
+              <div className="text-sm text-slate-500">Common Challenges</div>
               <ul className="mt-6 space-y-4 text-slate-700">
                 {commonChallenges.map((item) => (
                   <li key={item}>{item}</li>

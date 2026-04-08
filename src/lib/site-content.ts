@@ -1,37 +1,37 @@
 export const siteContent = {
   companyName: "CFO Advisory Partners",
-  tagline: "Strategic Financial Leadership",
-  primaryCtaLabel: "Book a Call",
+  tagline: "Stop Guessing. Start Growing.",
+  primaryCtaLabel: "Schedule Your Free Discovery Call",
   contactEmail: "info@cfoadvisorypartners.net",
   calendlyUrl: "https://calendly.com/john-cfoadvisorypartners/30min",
-  headline: "Clarity for the numbers behind your business.",
+  headline: "Know What Your Numbers Are Really Telling You",
   subheadline:
-    "Understand your cash, profitability, and next steps with confidence through practical, hands-on financial leadership.",
+    "We Help Turn Financial Noise Into Clear Direction",
   about:
     "CFO Advisory Partners works with business owners who need more than bookkeeping. We bring structure to financial reporting, clarity to cash flow, and guidance to the decisions that drive growth.",
 };
 
 export const commonChallenges = [
-  "Not sure if your business is truly profitable",
-  "No clear visibility into future cash needs",
-  "Uncertainty around margins and pricing",
-  "Decisions made without reliable financial insight",
+  "Is Your Profit Real—or Just on Paper?",
+  "Unsure on Next Month's Cash Needs?",
+  "Do You Understand Your True Margins?",
+  "What's Your Level of Confidence in Your Numbers?",
 ];
 
 export const valueItems = [
   {
     title: "Cash Flow Visibility",
-    description: "Know what cash is truly available and what is coming next.",
+    description: "Clear Cash Today. Confident Moves Tomorrow.",
   },
   {
     title: "Profitability Insight",
     description:
-      "Understand margins across your business and where profit is really being generated.",
+      "Understand Your Margins—and Where Profit Is Really Made",
   },
   {
     title: "Decision Support",
     description:
-      "Make more confident decisions backed by timely and meaningful financial clarity.",
+      "Make Confident Decisions with Clear, Timely Financial Insight",
   },
 ];
 
@@ -39,22 +39,22 @@ export const serviceItems = [
   {
     title: "Fractional CFO Leadership",
     description:
-      "Ongoing financial leadership and guidance without the cost of a full-time CFO.",
+      "CFO-Level Guidance—Without the Overhead",
   },
   {
     title: "Accounting Framework",
     description:
-      "Build a structured, reliable financial foundation with clean accounts, consistent processes, and reporting that reflects how the business operates.",
+      "Clean Accounts. Consistent Processes. Reliable Reporting.",
   },
   {
     title: "Monthly Cadence",
     description:
-      "Establish a disciplined monthly close, reporting, and review process so you consistently understand performance, cash position, and key issues.",
+      "Close Monthly. Ontime Financials. Know Where You Stand.",
   },
   {
     title: "Cash Flow & Profitability",
     description:
-      "Improve visibility into cash flow and understand what is truly driving profit across your business.",
+      "Find Out What’s Really Driving Profit",
   },
 ];
 
@@ -83,10 +83,10 @@ export const testimonials = [
 ];
 
 export const leadPageBullets = [
-  "Not sure if your business is truly profitable",
-  "No clear view of upcoming financial needs",
-  "Reports do not translate into decisions",
-  "Uncertainty around margins and performance",
+  "Is Your Profit Real—or Just on Paper?",
+  "Unsure on Next Month's Cash Needs?",
+  "Do You Understand Your True Margins?",
+  "What's Your Level of Confidence in Your Numbers?",
 ];
 
 export const revenueRanges = [

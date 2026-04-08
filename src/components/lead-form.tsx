@@ -28,7 +28,7 @@ export function LeadForm() {
           className="min-h-[110px] rounded-lg border p-3"
         />
         <button type="submit" className="rounded-lg bg-slate-900 p-3 text-white">
-          Continue to Schedule
+          Book Your Complimentary Discovery Call
         </button>
       </form>
     </div>
