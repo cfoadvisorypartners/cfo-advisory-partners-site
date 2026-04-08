@@ -33,7 +33,7 @@ export default function HomePage() {
                 href="/lead"
                 className="rounded-2xl bg-slate-900 px-6 py-3 text-white !text-white"
               >
-                Schedule a Call
+                Schedule Your Free Discovery Call
               </Link>
               <Link href="/about" className="rounded-2xl border px-6 py-3">
                 Learn More
