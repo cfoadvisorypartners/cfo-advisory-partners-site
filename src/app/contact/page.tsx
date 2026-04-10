@@ -24,7 +24,7 @@ export default function ContactPage() {
             <div className="text-sm uppercase tracking-[0.25em] text-slate-500">Scheduling</div>
             <div className="mt-3 text-xl font-semibold text-slate-900">30-minute discovery call</div>
             <Link href="/lead" className="mt-6 inline-block rounded-2xl bg-slate-900 px-5 py-3 text-white !text-white">
-              Schedule Your Free Consultation Call
+              Schedule Your Free Discovery Call
             </Link>
           </div>
         </div>
