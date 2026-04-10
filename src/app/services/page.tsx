@@ -37,7 +37,7 @@ export default function ServicesPage() {
           <div className="mt-6">
             <Link
               href="/contact"
-              className="inline-block rounded-lg bg-slate-900 px-6 py-3 text-base font-medium text-white transition hover:bg-slate-800"
+              className="inline-block rounded-lg bg-slate-900 px-6 py-3 text-base font-medium !text-white transition hover:bg-slate-800"
             >
               Schedule Your Free Discovery Call
             </Link>
