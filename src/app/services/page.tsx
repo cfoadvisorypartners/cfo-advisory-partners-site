@@ -9,7 +9,6 @@ export default function ServicesPage() {
     <div className="min-h-screen bg-stone-50 text-slate-900">
       <SiteHeader />
       <main className="mx-auto max-w-7xl px-6 py-20 lg:px-10">
-        
         <SectionHeading
           eyebrow="Services"
           title="Build the structure behind better financial decisions."
@@ -25,29 +24,26 @@ export default function ServicesPage() {
           ))}
         </div>
 
-        {/* CTA SECTION */}
-        <section className="mt-16 rounded-2xl bg-slate-900 p-10 text-center max-w-3xl mx-auto">
-          <h2 className="text-2xl font-semibold text-white">
+        <section className="mt-16 rounded-2xl bg-white p-10 shadow-sm ring-1 ring-stone-200 text-center max-w-3xl mx-auto">
+          <h2 className="text-2xl font-semibold text-slate-900">
             Ready to bring clarity to your financial decisions?
           </h2>
-
-          <p className="mt-4 text-lg leading-8 text-slate-200">
+          <p className="mt-4 text-lg leading-8 text-slate-600">
             Schedule a free discovery call to walk through your current financial
             structure, identify gaps, and determine what level of support your
             business needs.
           </p>
-
-         <div className="mt-6">
-  <Link href="/contact" className="inline-block">
-    <span className="inline-block rounded-lg bg-slate-900 px-6 py-3 text-base font-medium text-white transition hover:bg-slate-800">
-      <span className="!text-white">
-        Schedule Your Free Discovery Call
-      </span>
-    </span>
-  </Link>
-</div>
+          <div className="mt-6">
+            <Link href="/contact" className="inline-block no-underline">
+              <span
+                className="inline-block rounded-lg bg-slate-900 px-6 py-3 text-base font-medium hover:bg-slate-800"
+                style={{ color: "#ffffff" }}
+              >
+                Schedule Your Free Discovery Call
+              </span>
+            </Link>
+          </div>
         </section>
-
       </main>
       <SiteFooter />
     </div>
