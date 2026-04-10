@@ -37,14 +37,15 @@ export default function ServicesPage() {
             business needs.
           </p>
 
-          <div className="mt-6">
-            <Link
-              href="/contact"
-              className="inline-block rounded-lg bg-white px-6 py-3 text-base font-medium text-slate-900 transition hover:bg-slate-100"
-            >
-              Schedule Your Free Discovery Call
-            </Link>
-          </div>
+         <div className="mt-6">
+  <Link href="/contact" className="inline-block">
+    <span className="inline-block rounded-lg bg-slate-900 px-6 py-3 text-base font-medium text-white transition hover:bg-slate-800">
+      <span className="!text-white">
+        Schedule Your Free Discovery Call
+      </span>
+    </span>
+  </Link>
+</div>
         </section>
 
       </main>
