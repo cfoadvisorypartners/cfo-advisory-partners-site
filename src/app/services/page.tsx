@@ -36,11 +36,12 @@ export default function ServicesPage() {
           </p>
           <div className="mt-6">
             <Link
-              href="/contact"
-              className="inline-block rounded-lg bg-slate-900 px-6 py-3 text-base font-medium !text-white transition hover:bg-slate-800"
-            >
-              Schedule Your Free Discovery Call
-            </Link>
+  href="/contact"
+  className="inline-block rounded-lg bg-slate-900 px-6 py-3 text-base font-medium transition hover:bg-slate-800"
+  style={{ color: "#ffffff" }}
+>
+  Schedule Your Free Discovery Call
+</Link>
           </div>
         </section>
 
