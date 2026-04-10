@@ -128,7 +128,7 @@ export default function HomePage() {
                 href="/lead"
                 className="rounded-2xl bg-white px-6 py-3 text-slate-900 !text-slate-900 font-medium shadow-md hover:bg-gray-100 transition"
               >
-                Click to Schedule
+                Schedule Your Free Discovery Call
               </Link>
             </div>
           </div>
