@@ -38,9 +38,11 @@ export default function ServicesPage() {
             <Link
   href="/contact"
   className="inline-block rounded-lg bg-slate-900 px-6 py-3 text-base font-medium transition hover:bg-slate-800"
-  style={{ color: "#ffffff" }}
+  style={{ color: "#ffffff", textDecoration: "none" }}
 >
-  Schedule Your Free Discovery Call
+  <span style={{ color: "#ffffff" }}>
+    Schedule Your Free Discovery Call
+  </span>
 </Link>
           </div>
         </section>
