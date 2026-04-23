@@ -1,141 +1,337 @@
-import Link from "next/link";
-import { SiteHeader } from "@/components/site-header";
-import { SiteFooter } from "@/components/site-footer";
-import { SectionHeading } from "@/components/section-heading";
-import { TestimonialGrid } from "@/components/testimonial-grid";
-import { VerticalsGrid } from "@/components/verticals-grid";
-import {
-  commonChallenges,
-  serviceItems,
-  siteContent,
-  valueItems,
-} from "@/lib/site-content";
+"use client";
+
+import { useEffect, useState } from "react";
 
 export default function HomePage() {
+  const rotatingWords = ["cash flow", "profitability", "decision-making"];
+  const [activeWord, setActiveWord] = useState(rotatingWords[0]);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveWord((current) => {
+        const currentIndex = rotatingWords.indexOf(current);
+        const nextIndex = (currentIndex + 1) % rotatingWords.length;
+        return rotatingWords[nextIndex];
+      });
+    }, 2200);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  const services = [
+    {
+      title: "Cash Flow Clarity",
+      description:
+        "See where cash is going, what is coming in, and what needs attention before it becomes a problem.",
+    },
+    {
+      title: "Profitability Insight",
+      description:
+        "Understand what is actually driving profit so you can make better operating decisions.",
+    },
+    {
+      title: "Decision Support",
+      description:
+        "Get experienced CFO guidance without hiring a full-time CFO.",
+    },
+  ];
+
+  const painPoints = [
+    "You are not fully sure if the business is truly profitable.",
+    "Cash flow feels tighter than it should.",
+    "Your reports exist, but they are not helping you decide what to do next.",
+    "You have bookkeeping covered, but not financial leadership.",
+  ];
+
+  const testimonials = [
+    {
+      quote:
+        "John helped us understand what our numbers were actually saying and gave us a much clearer path forward.",
+      name: "Client Name",
+      role: "CEO, Example Company",
+    },
+    {
+      quote:
+        "We finally had visibility into cash flow and profitability in a way that helped us make decisions quickly.",
+      name: "Client Name",
+      role: "Owner, Example Company",
+    },
+  ];
+
   return (
-    <div className="min-h-screen bg-stone-50 text-slate-900">
-      <SiteHeader />
+    <main className="bg-white text-slate-900">
+      <section className="relative isolate min-h-screen overflow-hidden">
+        <div className="absolute inset-0">
+          <video
+            className="h-full w-full object-cover"
+            autoPlay
+            muted
+            loop
+            playsInline
+            poster="/images/home-hero-poster.jpg"
+          >
+            <source src="/videos/cfo-hero-loop.mp4" type="video/mp4" />
+          </video>
 
-      <section className="relative">
-        <div className="mx-auto grid max-w-7xl gap-12 px-6 py-24 lg:grid-cols-2 lg:px-10">
+          <div className="absolute inset-0 bg-slate-900/20" />
+          <div className="absolute inset-0 bg-gradient-to-b from-slate-900/5 via-slate-900/10 to-slate-900/25" />
+        </div>
+
+        <div className="relative mx-auto flex min-h-screen max-w-7xl flex-col px-4 py-6 sm:px-6 lg:px-8">
+          <header className="mx-auto w-full max-w-6xl rounded-full border border-white/25 bg-white/80 px-4 py-3 shadow-lg shadow-slate-950/10 backdrop-blur-md">
+            <div className="flex items-center justify-between gap-4">
+              <a
+                href="/"
+                className="text-sm font-semibold tracking-wide text-slate-900 sm:text-base"
+              >
+                CFO ADVISORY PARTNERS
+              </a>
+
+              <nav className="hidden items-center gap-6 text-sm font-medium text-slate-700 md:flex">
+                <a href="/about" className="transition hover:text-slate-950">
+                  About
+                </a>
+                <a href="/services" className="transition hover:text-slate-950">
+                  Services
+                </a>
+                <a href="/contact" className="transition hover:text-slate-950">
+                  Contact
+                </a>
+              </nav>
+
+              <a
+                href="/contact"
+                className="inline-flex items-center justify-center rounded-full bg-orange-400 px-5 py-2.5 text-sm font-semibold !text-white transition hover:bg-orange-300 hover:!text-white"
+              >
+                Schedule a Call
+              </a>
+            </div>
+          </header>
+
+          <div className="relative flex flex-1 items-start justify-center pt-24 sm:pt-28 lg:pt-32">
+            <div className="mx-auto max-w-5xl px-2 text-center">
+              <h1 className="text-3xl font-semibold tracking-tight text-white sm:text-4xl lg:text-5xl">
+                You lead your business.
+              </h1>
+
+              <div className="mt-2 flex justify-center">
+                <div className="flex w-full max-w-4xl items-baseline justify-center text-center text-2xl font-semibold tracking-tight text-white sm:text-4xl lg:text-5xl">
+                  <span className="shrink-0">We’ll bring clarity to your&nbsp;</span>
+                  <span className="inline-block min-w-[17ch] text-left text-orange-400">
+                    {activeWord}
+                  </span>
+                </div>
+              </div>
+
+              <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+                <a
+                  href="/contact"
+                  className="inline-flex items-center justify-center rounded-full bg-blue-600 px-7 py-3 text-base font-semibold !text-white shadow-lg shadow-blue-600/25 transition hover:bg-blue-500 hover:!text-white"
+                >
+                  Schedule Your Free Discovery Call
+                </a>
+              </div>
+            </div>
+
+            <div className="pointer-events-none absolute inset-0 hidden lg:block">
+              <div className="absolute left-[2.5%] top-[56%] h-16 w-24 rounded-bl-3xl border-l-2 border-b-2 border-dashed border-white/60" />
+              <div className="absolute left-[12%] top-[76%] h-8 w-16 rounded-tr-3xl border-r-2 border-t-2 border-dashed border-white/60" />
+
+              <div className="absolute right-[12%] top-[66%] h-14 w-20 rounded-br-3xl border-r-2 border-b-2 border-dashed border-white/60" />
+              <div className="absolute right-[6%] top-[84%] h-12 w-16 rounded-tl-3xl border-l-2 border-t-2 border-dashed border-white/60" />
+
+              <div className="absolute left-[2%] top-[50%] w-64 rounded-2xl border border-white/20 bg-white/92 p-5 text-left shadow-2xl shadow-slate-950/20 backdrop-blur">
+                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-orange-400">
+                  Owner
+                </p>
+                <p className="mt-3 text-sm leading-8 text-slate-800">
+                  I’m not sure if we’re actually as profitable as we should be.
+                </p>
+              </div>
+
+              <div className="absolute left-[10%] top-[73%] w-72 rounded-2xl border border-white/20 bg-white/92 p-5 text-left shadow-2xl shadow-slate-950/20 backdrop-blur">
+                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-orange-400">
+                  CFO Advisory Partners
+                </p>
+                <p className="mt-3 text-sm leading-8 text-slate-800">
+                  We build the reporting and visibility needed to answer that
+                  clearly.
+                </p>
+              </div>
+
+              <div className="absolute right-[2%] top-[54%] w-64 rounded-2xl border border-white/20 bg-white/92 p-5 text-left shadow-2xl shadow-slate-950/20 backdrop-blur">
+                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-orange-400">
+                  CEO
+                </p>
+                <p className="mt-3 text-sm leading-8 text-slate-800">
+                  Our numbers don’t help us decide what to do next.
+                </p>
+              </div>
+
+              <div className="absolute right-[6%] top-[79%] w-72 rounded-2xl border border-white/20 bg-white/92 p-5 text-left shadow-2xl shadow-slate-950/20 backdrop-blur">
+                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-orange-400">
+                  CFO Advisory Partners
+                </p>
+                <p className="mt-3 text-sm leading-8 text-slate-800">
+                  We turn your numbers into better decisions.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-7xl px-6 py-20 lg:px-8">
+        <div className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
           <div>
-            <div className="text-xs uppercase tracking-[0.35em] text-slate-500">
-              Fractional CFO Services
-            </div>
-            <h1 className="mt-4 text-5xl font-semibold leading-tight tracking-tight">
-              {siteContent.headline}
-            </h1>
-            <p className="mt-6 max-w-xl text-lg text-slate-600">
-              {siteContent.subheadline}
+            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-sky-700">
+              The problem
             </p>
-            <div className="mt-8 flex gap-4">
-              <Link
-                href="/lead"
-                className="rounded-2xl bg-slate-900 px-6 py-3 text-white !text-white"
-              >
-                Schedule Your Free Discovery Call
-              </Link>
-              <Link href="/about" className="rounded-2xl border px-6 py-3">
-                Learn More
-              </Link>
-            </div>
-          </div>
-
-          <div className="space-y-6">
-            <div className="rounded-[2rem] bg-white p-8 shadow-xl">
-              <div className="text-sm text-slate-500">Common Challenges</div>
-              <ul className="mt-6 space-y-4 text-slate-700">
-                {commonChallenges.map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-            </div>
-            <div className="rounded-2xl bg-slate-900 px-6 py-3 text-white !text-white">
-              <div className="text-sm text-slate-400">What we provide</div>
-              <p className="mt-4 text-xl">
-                Clear reporting, structured processes, and ongoing financial
-                guidance to support better decisions.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="mx-auto max-w-7xl px-6 py-20 lg:px-10">
-        <div className="grid gap-6 md:grid-cols-3">
-          {valueItems.map((item) => (
-            <div key={item.title} className="rounded-[2rem] bg-white p-8 shadow-sm">
-              <div className="text-xl font-semibold">{item.title}</div>
-              <p className="mt-3 text-slate-600">{item.description}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <section className="bg-white">
-        <div className="mx-auto max-w-7xl px-6 py-20 lg:px-10">
-          <SectionHeading
-            eyebrow="About"
-            title="Practical financial leadership for growing businesses."
-            description={siteContent.about}
-          />
-        </div>
-      </section>
-
-      <section className="mx-auto max-w-7xl px-6 py-20 lg:px-10">
-        <SectionHeading eyebrow="Services" title="How we create clarity" />
-        <div className="mt-10 grid gap-6 md:grid-cols-2">
-          {serviceItems.map((item) => (
-            <div key={item.title} className="rounded-[2rem] bg-stone-100 p-8">
-              <div className="text-xl font-semibold">{item.title}</div>
-              <p className="mt-3 text-slate-600">{item.description}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <section className="bg-white">
-        <div className="mx-auto max-w-7xl px-6 py-20 lg:px-10">
-          <SectionHeading
-            eyebrow="Who We Work With"
-            title="Broad industry support with practical financial discipline."
-            description="We work with established businesses that already have bookkeeping support in place but need stronger structure, better reporting, and clearer financial direction."
-          />
-          <VerticalsGrid />
-        </div>
-      </section>
-
-      <section className="mx-auto max-w-7xl px-6 py-20 lg:px-10">
-        <SectionHeading
-          eyebrow="Client Feedback"
-          title="Trusted by business leaders who needed more clarity from their numbers."
-        />
-        <TestimonialGrid />
-      </section>
-
-      <section className="bg-stone-100">
-        <div className="mx-auto max-w-7xl px-6 py-20 lg:px-10">
-          <div className="rounded-[2rem] bg-slate-950 p-10 text-white">
-            <h2 className="text-3xl font-semibold">
-              You have bookkeeping in place. Now you need financial clarity.
+            <h2 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">
+              When the numbers do not create clarity, growth gets harder
             </h2>
-            <p className="mt-4 max-w-2xl text-slate-300">
-              If your business is producing numbers but not enough decision-making
-              clarity, start with a focused conversation.
+            <p className="mt-4 max-w-2xl text-lg leading-8 text-slate-600">
+              Most growing companies already have bookkeeping. What they often
+              lack is financial leadership that turns reports into real business
+              insight.
             </p>
-            <div className="mt-8">
-              <Link
-                href="/lead"
-                className="rounded-2xl bg-white px-6 py-3 text-slate-900 !text-slate-900 font-medium shadow-md hover:bg-gray-100 transition"
-              >
-                Schedule Your Free Discovery Call
-              </Link>
-            </div>
+          </div>
+
+          <div className="rounded-3xl border border-slate-200 bg-slate-50 p-8 shadow-sm">
+            <h3 className="text-xl font-semibold">Does this sound familiar?</h3>
+            <ul className="mt-6 space-y-4 text-slate-700">
+              {painPoints.map((item) => (
+                <li key={item} className="flex gap-3">
+                  <span className="mt-1 h-2.5 w-2.5 rounded-full bg-sky-500" />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </section>
 
-      <SiteFooter />
-    </div>
+      <section className="bg-slate-50 py-20">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="max-w-3xl">
+            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-sky-700">
+              What we do
+            </p>
+            <h2 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">
+              Fractional CFO support built for growing companies
+            </h2>
+            <p className="mt-4 text-lg leading-8 text-slate-600">
+              We bring structure, insight, and financial decision-making support
+              to companies that have outgrown basic reporting.
+            </p>
+          </div>
+
+          <div className="mt-12 grid gap-6 md:grid-cols-3">
+            {services.map((service) => (
+              <div
+                key={service.title}
+                className="rounded-3xl bg-white p-8 shadow-sm ring-1 ring-slate-200"
+              >
+                <h3 className="text-xl font-semibold">{service.title}</h3>
+                <p className="mt-4 leading-7 text-slate-600">
+                  {service.description}
+                </p>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-10">
+            <a
+              href="/contact"
+              className="inline-flex items-center justify-center rounded-2xl bg-slate-900 px-6 py-3 text-base font-semibold text-white transition hover:bg-slate-800"
+            >
+              Book Your Complimentary Discovery Call
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-7xl px-6 py-20 lg:px-8">
+        <div className="grid gap-8 rounded-[2rem] bg-slate-900 p-10 text-white lg:grid-cols-3">
+          <div>
+            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-sky-300">
+              Why it matters
+            </p>
+            <h2 className="mt-3 text-3xl font-semibold tracking-tight">
+              Financial leadership without hiring a full-time CFO
+            </h2>
+          </div>
+          <div className="rounded-3xl bg-white/5 p-6">
+            <p className="text-4xl font-semibold">Clear reporting</p>
+            <p className="mt-2 text-slate-300">
+              Build an accounting framework you can actually run the business
+              on.
+            </p>
+          </div>
+          <div className="rounded-3xl bg-white/5 p-6">
+            <p className="text-4xl font-semibold">Better decisions</p>
+            <p className="mt-2 text-slate-300">
+              Turn monthly numbers into practical guidance for owners and
+              leadership teams.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-white py-20">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="max-w-3xl">
+            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-sky-700">
+              Credibility
+            </p>
+            <h2 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">
+              Trusted guidance for owners who need clarity fast
+            </h2>
+          </div>
+
+          <div className="mt-12 grid gap-6 md:grid-cols-2">
+            {testimonials.map((testimonial) => (
+              <figure
+                key={testimonial.quote}
+                className="rounded-3xl border border-slate-200 p-8 shadow-sm"
+              >
+                <blockquote className="text-lg leading-8 text-slate-700">
+                  “{testimonial.quote}”
+                </blockquote>
+                <figcaption className="mt-6">
+                  <div className="font-semibold text-slate-900">
+                    {testimonial.name}
+                  </div>
+                  <div className="text-slate-500">{testimonial.role}</div>
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-sky-50 py-20">
+        <div className="mx-auto max-w-4xl px-6 text-center lg:px-8">
+          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-sky-700">
+            Next step
+          </p>
+          <h2 className="mt-3 text-3xl font-semibold tracking-tight sm:text-5xl">
+            Get the financial clarity you need to lead with confidence
+          </h2>
+          <p className="mt-6 text-lg leading-8 text-slate-600">
+            If your numbers are not helping you make better decisions, let’s
+            talk.
+          </p>
+          <div className="mt-8">
+            <a
+              href="/contact"
+              className="inline-flex items-center justify-center rounded-2xl bg-sky-600 px-6 py-3 text-base font-semibold text-white shadow-lg shadow-sky-600/20 transition hover:bg-sky-500"
+            >
+              Schedule Your Free Discovery Call
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
   );
 }
