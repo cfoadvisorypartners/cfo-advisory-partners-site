@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import ServicesScrollSection from "@/components/ServicesScrollSection";
 
 export default function HomePage() {
   const rotatingWords = ["cash flow", "profitability", "decision-making"];
@@ -116,7 +117,9 @@ export default function HomePage() {
 
               <div className="mt-2 flex justify-center">
                 <div className="flex w-full max-w-4xl items-baseline justify-center text-center text-2xl font-semibold tracking-tight text-white sm:text-4xl lg:text-5xl">
-                  <span className="shrink-0">We’ll bring clarity to your&nbsp;</span>
+                  <span className="shrink-0">
+                    We’ll bring clarity to your&nbsp;
+                  </span>
                   <span className="inline-block min-w-[17ch] text-left text-orange-400">
                     {activeWord}
                   </span>
@@ -134,13 +137,41 @@ export default function HomePage() {
             </div>
 
             <div className="pointer-events-none absolute inset-0 hidden lg:block">
-              <div className="absolute left-[2.5%] top-[56%] h-16 w-24 rounded-bl-3xl border-l-2 border-b-2 border-dashed border-white/60" />
-              <div className="absolute left-[12%] top-[76%] h-8 w-16 rounded-tr-3xl border-r-2 border-t-2 border-dashed border-white/60" />
+              {/* Left outside connector */}
+              <svg
+                className="absolute left-[4%] top-[57%] z-10 h-48 w-[34rem]"
+                viewBox="0 0 540 210"
+                fill="none"
+              >
+                <path
+                  d="M260 20 H420 Q430 20 430 45 V140 Q430 165 405 165 H350"
+                  stroke="white"
+                  strokeWidth="3"
+                  strokeDasharray="8 8"
+                  opacity="0.85"
+                />
+                <circle cx="275" cy="20" r="6" fill="#fb923c" />
+                <circle cx="350" cy="165" r="6" fill="#fb923c" />
+              </svg>
 
-              <div className="absolute right-[12%] top-[66%] h-14 w-20 rounded-br-3xl border-r-2 border-b-2 border-dashed border-white/60" />
-              <div className="absolute right-[6%] top-[84%] h-12 w-16 rounded-tl-3xl border-l-2 border-t-2 border-dashed border-white/60" />
+              {/* Right outside connector */}
+              <svg
+                className="absolute right-[4%] top-[58%] z-10 h-48 w-[34rem]"
+                viewBox="0 0 540 210"
+                fill="none"
+              >
+                <path
+                  d="M280 20 H120 Q110 20 110 45 V140 Q110 165 135 165 H190"
+                  stroke="white"
+                  strokeWidth="3"
+                  strokeDasharray="8 8"
+                  opacity="0.85"
+                />
+                <circle cx="265" cy="20" r="6" fill="#fb923c" />
+                <circle cx="190" cy="165" r="6" fill="#fb923c" />
+              </svg>
 
-              <div className="absolute left-[2%] top-[50%] w-64 rounded-2xl border border-white/20 bg-white/92 p-5 text-left shadow-2xl shadow-slate-950/20 backdrop-blur">
+              <div className="absolute left-[4%] top-[48%] z-20 w-72 rounded-2xl border border-white/20 bg-white/92 p-5 text-left shadow-2xl shadow-slate-950/20 backdrop-blur">
                 <p className="text-xs font-semibold uppercase tracking-[0.18em] text-orange-400">
                   Owner
                 </p>
@@ -149,7 +180,7 @@ export default function HomePage() {
                 </p>
               </div>
 
-              <div className="absolute left-[10%] top-[73%] w-72 rounded-2xl border border-white/20 bg-white/92 p-5 text-left shadow-2xl shadow-slate-950/20 backdrop-blur">
+              <div className="absolute left-[5.5%] top-[68%] z-20 w-80 rounded-2xl border border-white/20 bg-white/92 p-5 text-left shadow-2xl shadow-slate-950/20 backdrop-blur">
                 <p className="text-xs font-semibold uppercase tracking-[0.18em] text-orange-400">
                   CFO Advisory Partners
                 </p>
@@ -159,7 +190,7 @@ export default function HomePage() {
                 </p>
               </div>
 
-              <div className="absolute right-[2%] top-[54%] w-64 rounded-2xl border border-white/20 bg-white/92 p-5 text-left shadow-2xl shadow-slate-950/20 backdrop-blur">
+              <div className="absolute right-[4%] top-[51%] z-20 w-72 rounded-2xl border border-white/20 bg-white/92 p-5 text-left shadow-2xl shadow-slate-950/20 backdrop-blur">
                 <p className="text-xs font-semibold uppercase tracking-[0.18em] text-orange-400">
                   CEO
                 </p>
@@ -168,7 +199,7 @@ export default function HomePage() {
                 </p>
               </div>
 
-              <div className="absolute right-[6%] top-[79%] w-72 rounded-2xl border border-white/20 bg-white/92 p-5 text-left shadow-2xl shadow-slate-950/20 backdrop-blur">
+              <div className="absolute right-[5.5%] top-[72%] z-20 w-80 rounded-2xl border border-white/20 bg-white/92 p-5 text-left shadow-2xl shadow-slate-950/20 backdrop-blur">
                 <p className="text-xs font-semibold uppercase tracking-[0.18em] text-orange-400">
                   CFO Advisory Partners
                 </p>
@@ -180,6 +211,8 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      <ServicesScrollSection />
 
       <section className="mx-auto max-w-7xl px-6 py-20 lg:px-8">
         <div className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
@@ -261,6 +294,7 @@ export default function HomePage() {
               Financial leadership without hiring a full-time CFO
             </h2>
           </div>
+
           <div className="rounded-3xl bg-white/5 p-6">
             <p className="text-4xl font-semibold">Clear reporting</p>
             <p className="mt-2 text-slate-300">
@@ -268,6 +302,7 @@ export default function HomePage() {
               on.
             </p>
           </div>
+
           <div className="rounded-3xl bg-white/5 p-6">
             <p className="text-4xl font-semibold">Better decisions</p>
             <p className="mt-2 text-slate-300">
