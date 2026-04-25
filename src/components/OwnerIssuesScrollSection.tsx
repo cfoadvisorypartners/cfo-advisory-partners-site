@@ -3,7 +3,8 @@
 import { useEffect, useMemo, useState } from "react";
 
 type IssueItem = {
-  title: string;
+  imageTitle: string;
+  bubbleTitle: string;
   bubbleText: string;
   imageText: string;
   image: string;
@@ -13,40 +14,46 @@ function OwnerIssuesScrollSection() {
   const issues: IssueItem[] = useMemo(
     () => [
       {
-        title: "We think we are profitable — but where is the money?",
+        imageTitle: "We think we are profitable — but where is the money?",
+        bubbleTitle: "Cash feels tighter than it should",
         bubbleText:
-          "Revenue looks strong, but cash still feels tight and unclear.",
+          "Sales may be strong, but the owner still cannot clearly see where the money is going.",
         imageText:
-          "We help owners connect profit, cash flow, receivables, payroll, debt, and spending so they can see where the money is actually going.",
+          "We help connect profit, cash flow, receivables, payroll, debt, and spending so owners can understand what is really happening with cash.",
         image: "/images/issues/profit-cash-flow.jpg",
       },
       {
-        title: "We cannot get our books in order",
-        bubbleText: "The books feel messy, inconsistent, or hard to rely on.",
+        imageTitle: "We cannot get our books in order",
+        bubbleTitle: "The numbers do not feel dependable",
+        bubbleText:
+          "The reports exist, but leadership is not confident enough to rely on them.",
         imageText:
-          "We help clean up the financial foundation so your reports become accurate, timely, and useful for decision-making.",
+          "We help clean up the financial foundation so reporting becomes accurate, timely, and useful for decision-making.",
         image: "/images/issues/books-in-order.jpg",
       },
       {
-        title: "We cannot close the books fast enough",
+        imageTitle: "We cannot close the books fast enough",
+        bubbleTitle: "Month-end takes too long",
         bubbleText:
-          "Month-end takes too long and leadership is always looking backward.",
+          "By the time the numbers are ready, the business has already moved on.",
         imageText:
           "We help improve the monthly close process so you get financial visibility sooner and can make decisions with current information.",
         image: "/images/issues/monthly-close.jpg",
       },
       {
-        title: "We need help with payroll",
+        imageTitle: "We need help with payroll",
+        bubbleTitle: "Payroll needs better oversight",
         bubbleText:
-          "Payroll is too important to be disconnected from financial oversight.",
+          "Labor costs are too important to be disconnected from financial planning and reporting.",
         imageText:
           "We help connect payroll, labor costs, reporting, and cash planning so compensation does not become a blind spot.",
         image: "/images/issues/payroll-help.jpg",
       },
       {
-        title: "We need a controller, but cannot justify the overhead",
+        imageTitle: "We need a controller, but cannot justify the overhead",
+        bubbleTitle: "A full-time hire may be too much",
         bubbleText:
-          "The business needs financial leadership, but a full-time hire may not make sense yet.",
+          "The business needs financial leadership, but not necessarily another full-time executive.",
         imageText:
           "We provide controller and CFO-level support without the cost, commitment, or overhead of adding another full-time executive.",
         image: "/images/issues/controller-overhead.jpg",
@@ -94,24 +101,25 @@ function OwnerIssuesScrollSection() {
           </div>
 
           <div className="mt-10 grid items-center gap-12 lg:grid-cols-[1.15fr_0.85fr]">
+            {/* LEFT SIDE IMAGE CARD */}
             <div className="relative hidden lg:block">
               <div className="mx-auto flex w-full max-w-2xl flex-col">
                 <div className="rounded-[2rem] bg-white p-5 shadow-2xl shadow-slate-900/10">
                   <div className="relative flex h-[320px] items-center justify-center overflow-hidden rounded-[1.5rem] bg-white">
                     <img
                       src={issues[activeIndex].image}
-                      alt={issues[activeIndex].title}
+                      alt={issues[activeIndex].imageTitle}
                       className="max-h-full w-full object-contain transition-all duration-1000 ease-[cubic-bezier(0.25,0.8,0.25,1)]"
                     />
                   </div>
 
-                  <div className="mt-5 min-h-[130px] rounded-2xl bg-white p-5 shadow-lg ring-1 ring-slate-100">
+                  <div className="mt-5 min-h-[135px] rounded-2xl bg-white p-5 shadow-lg ring-1 ring-slate-100">
                     <p className="text-xs font-semibold uppercase tracking-[0.2em] text-orange-400">
                       Owner Challenge
                     </p>
 
                     <h3 className="mt-3 text-lg font-semibold leading-7 text-slate-900">
-                      {issues[activeIndex].title}
+                      {issues[activeIndex].imageTitle}
                     </h3>
 
                     <p className="mt-3 text-sm leading-7 text-slate-700">
@@ -136,6 +144,7 @@ function OwnerIssuesScrollSection() {
               </div>
             </div>
 
+            {/* RIGHT SIDE ROTATING BUBBLES */}
             <div className="relative hidden h-[520px] overflow-hidden lg:block">
               <div className="absolute inset-0">
                 {visibleCards.map((issue, displayIndex) => {
@@ -144,8 +153,8 @@ function OwnerIssuesScrollSection() {
 
                   return (
                     <div
-                      key={`${issue.title}-${activeIndex}-${displayIndex}`}
-                      className={`absolute right-0 top-1/2 w-full max-w-lg rounded-3xl border px-8 py-5 transition-all duration-1000 ease-[cubic-bezier(0.25,0.8,0.25,1)] ${
+                      key={`${issue.bubbleTitle}-${activeIndex}-${displayIndex}`}
+                      className={`absolute left-0 top-1/2 w-full max-w-lg rounded-3xl border px-8 py-5 transition-all duration-1000 ease-[cubic-bezier(0.25,0.8,0.25,1)] ${
                         isActive
                           ? "z-30 border-orange-200 bg-white opacity-100 shadow-xl shadow-orange-100/60"
                           : "z-10 border-slate-200 bg-white/60 opacity-45 shadow-sm"
@@ -161,7 +170,7 @@ function OwnerIssuesScrollSection() {
                       </p>
 
                       <h3 className="mt-3 text-lg font-semibold leading-7 text-slate-900">
-                        {issue.title}
+                        {issue.bubbleTitle}
                       </h3>
 
                       <p className="mt-3 text-base leading-7 text-slate-700">
@@ -176,15 +185,16 @@ function OwnerIssuesScrollSection() {
               <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[#f7f3ee] to-transparent" />
             </div>
 
-            <div className="space-y-10 lg:hidden">
+            {/* MOBILE VERSION */}
+            <div className="space-y-8 lg:hidden">
               {issues.map((issue) => (
                 <div
-                  key={issue.title}
-                  className="rounded-3xl bg-white p-6 shadow-lg shadow-slate-900/5"
+                  key={issue.imageTitle}
+                  className="rounded-3xl bg-white p-5 shadow-lg shadow-slate-900/5"
                 >
                   <img
                     src={issue.image}
-                    alt={issue.title}
+                    alt={issue.imageTitle}
                     className="h-auto w-full rounded-2xl bg-white object-contain"
                   />
 
@@ -193,7 +203,7 @@ function OwnerIssuesScrollSection() {
                   </p>
 
                   <h3 className="mt-3 text-xl font-semibold leading-8 text-slate-900">
-                    {issue.title}
+                    {issue.imageTitle}
                   </h3>
 
                   <p className="mt-3 text-base leading-8 text-slate-700">
