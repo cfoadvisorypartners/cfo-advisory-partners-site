@@ -61,17 +61,18 @@ function NextStepsSection() {
 
           <div className="mx-auto mt-12 max-w-5xl overflow-hidden rounded-[2rem] bg-white shadow-2xl shadow-slate-900/10 ring-1 ring-slate-200">
             <div className="grid lg:grid-cols-[1.05fr_0.95fr]">
-              <div className="relative h-[360px] overflow-hidden bg-slate-900 lg:h-[420px]">
+              
+              {/* IMAGE SIDE (FIXED) */}
+              <div className="relative flex h-[420px] items-center justify-center bg-slate-100 p-6">
                 <img
                   src={activeStep.image}
                   alt={activeStep.title}
-                  className="h-full w-full object-cover transition-all duration-700 ease-in-out"
+                  className="max-h-full max-w-full object-contain transition-all duration-700 ease-in-out"
                 />
-
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/45 via-slate-950/10 to-transparent" />
               </div>
 
-              <div className="flex min-h-[360px] flex-col justify-center p-8 text-center lg:min-h-[420px] lg:p-12 lg:text-left">
+              {/* TEXT SIDE */}
+              <div className="flex min-h-[420px] flex-col justify-center p-8 text-center lg:p-12 lg:text-left">
                 <p className="text-sm font-semibold uppercase tracking-[0.2em] text-orange-400">
                   Step {activeIndex + 1}
                 </p>
@@ -95,7 +96,6 @@ function NextStepsSection() {
                           ? "w-10 bg-orange-400"
                           : "w-3 bg-slate-300 hover:bg-slate-400"
                       }`}
-                      aria-label={`Show ${step.title}`}
                     />
                   ))}
                 </div>
