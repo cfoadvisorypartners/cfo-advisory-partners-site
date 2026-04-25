@@ -22,8 +22,7 @@ function OwnerIssuesScrollSection() {
       },
       {
         title: "We cannot get our books in order",
-        bubbleText:
-          "The books feel messy, inconsistent, or hard to rely on.",
+        bubbleText: "The books feel messy, inconsistent, or hard to rely on.",
         imageText:
           "We help clean up the financial foundation so your reports become accurate, timely, and useful for decision-making.",
         image: "/images/issues/books-in-order.jpg",
@@ -75,7 +74,7 @@ function OwnerIssuesScrollSection() {
   ];
 
   return (
-    <section className="relative bg-white lg:h-[175vh]">
+    <section className="relative bg-[#f7f3ee] lg:h-[175vh]">
       <div className="lg:sticky lg:top-0 lg:flex lg:min-h-screen lg:items-center">
         <div className="mx-auto w-full max-w-7xl px-6 py-16 lg:px-8 lg:py-8">
           <div className="mx-auto max-w-4xl text-center">
@@ -95,10 +94,9 @@ function OwnerIssuesScrollSection() {
           </div>
 
           <div className="mt-10 grid items-center gap-12 lg:grid-cols-[1.15fr_0.85fr]">
-            {/* LEFT SIDE IMAGE */}
             <div className="relative hidden lg:block">
               <div className="mx-auto flex w-full max-w-2xl flex-col">
-                <div className="rounded-[2rem] bg-[#f7f3ee] p-5 shadow-2xl shadow-slate-900/10">
+                <div className="rounded-[2rem] bg-white p-5 shadow-2xl shadow-slate-900/10">
                   <div className="relative flex h-[320px] items-center justify-center overflow-hidden rounded-[1.5rem] bg-white">
                     <img
                       src={issues[activeIndex].image}
@@ -138,8 +136,7 @@ function OwnerIssuesScrollSection() {
               </div>
             </div>
 
-            {/* RIGHT SIDE BUBBLES */}
-            <div className="relative hidden h-[540px] overflow-hidden lg:block">
+            <div className="relative hidden h-[520px] overflow-hidden lg:block">
               <div className="absolute inset-0">
                 {visibleCards.map((issue, displayIndex) => {
                   const position = displayIndex - 2;
@@ -150,8 +147,8 @@ function OwnerIssuesScrollSection() {
                       key={`${issue.title}-${activeIndex}-${displayIndex}`}
                       className={`absolute right-0 top-1/2 w-full max-w-lg rounded-3xl border px-8 py-5 transition-all duration-1000 ease-[cubic-bezier(0.25,0.8,0.25,1)] ${
                         isActive
-                          ? "z-30 border-slate-300 bg-white opacity-100 shadow-[0_10px_30px_rgba(0,0,0,0.08)]"
-                          : "z-10 border-transparent bg-slate-50/70 opacity-40"
+                          ? "z-30 border-orange-200 bg-white opacity-100 shadow-xl shadow-orange-100/60"
+                          : "z-10 border-slate-200 bg-white/60 opacity-45 shadow-sm"
                       }`}
                       style={{
                         transform: `translateY(calc(-50% + ${
@@ -175,16 +172,15 @@ function OwnerIssuesScrollSection() {
                 })}
               </div>
 
-              <div className="pointer-events-none absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-white to-transparent" />
-              <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-white to-transparent" />
+              <div className="pointer-events-none absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-[#f7f3ee] to-transparent" />
+              <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[#f7f3ee] to-transparent" />
             </div>
 
-            {/* MOBILE */}
             <div className="space-y-10 lg:hidden">
               {issues.map((issue) => (
                 <div
                   key={issue.title}
-                  className="rounded-3xl bg-[#f7f3ee] p-6 shadow-[0_10px_30px_rgba(0,0,0,0.06)]"
+                  className="rounded-3xl bg-white p-6 shadow-lg shadow-slate-900/5"
                 >
                   <img
                     src={issue.image}
