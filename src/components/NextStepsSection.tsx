@@ -57,11 +57,6 @@ function NextStepsSection() {
             <h2 className="mt-3 text-4xl font-semibold tracking-tight text-slate-950 sm:text-5xl lg:text-6xl">
               A clear path forward, based on where your business is today
             </h2>
-
-            <p className="mt-5 text-lg leading-8 text-slate-600">
-              Every business reaches a point where better financial structure,
-              stronger people, or clearer strategy becomes the priority.
-            </p>
           </div>
 
           <div className="mx-auto mt-12 max-w-5xl overflow-hidden rounded-[2rem] bg-white shadow-2xl shadow-slate-900/10 ring-1 ring-slate-200">
