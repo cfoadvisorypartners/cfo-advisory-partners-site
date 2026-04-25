@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import ServicesScrollSection from "@/components/ServicesScrollSection";
+import OwnerIssuesScrollSection from "@/components/OwnerIssuesScrollSection";
 
 export default function HomePage() {
   const rotatingWords = ["cash flow", "profitability", "decision-making"];
@@ -14,7 +15,7 @@ export default function HomePage() {
         const nextIndex = (currentIndex + 1) % rotatingWords.length;
         return rotatingWords[nextIndex];
       });
-    }, 2200);
+    }, 2800);
 
     return () => clearInterval(interval);
   }, []);
@@ -35,13 +36,6 @@ export default function HomePage() {
       description:
         "Get experienced CFO guidance without hiring a full-time CFO.",
     },
-  ];
-
-  const painPoints = [
-    "You are not fully sure if the business is truly profitable.",
-    "Cash flow feels tighter than it should.",
-    "Your reports exist, but they are not helping you decide what to do next.",
-    "You have bookkeeping covered, but not financial leadership.",
   ];
 
   const testimonials = [
@@ -120,7 +114,7 @@ export default function HomePage() {
                   <span className="shrink-0">
                     We’ll bring clarity to your&nbsp;
                   </span>
-                  <span className="inline-block min-w-[17ch] text-left text-orange-400">
+                  <span className="inline-block min-w-[17ch] text-left text-orange-400 transition-opacity duration-500">
                     {activeWord}
                   </span>
                 </div>
@@ -137,7 +131,6 @@ export default function HomePage() {
             </div>
 
             <div className="pointer-events-none absolute inset-0 hidden lg:block">
-              {/* Left outside connector */}
               <svg
                 className="absolute left-[4%] top-[57%] z-10 h-48 w-[34rem]"
                 viewBox="0 0 540 210"
@@ -154,7 +147,6 @@ export default function HomePage() {
                 <circle cx="350" cy="165" r="6" fill="#fb923c" />
               </svg>
 
-              {/* Right outside connector */}
               <svg
                 className="absolute right-[4%] top-[58%] z-10 h-48 w-[34rem]"
                 viewBox="0 0 540 210"
@@ -212,37 +204,9 @@ export default function HomePage() {
         </div>
       </section>
 
+      <OwnerIssuesScrollSection />
+
       <ServicesScrollSection />
-
-      <section className="mx-auto max-w-7xl px-6 py-20 lg:px-8">
-        <div className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
-          <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-sky-700">
-              The problem
-            </p>
-            <h2 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">
-              When the numbers do not create clarity, growth gets harder
-            </h2>
-            <p className="mt-4 max-w-2xl text-lg leading-8 text-slate-600">
-              Most growing companies already have bookkeeping. What they often
-              lack is financial leadership that turns reports into real business
-              insight.
-            </p>
-          </div>
-
-          <div className="rounded-3xl border border-slate-200 bg-slate-50 p-8 shadow-sm">
-            <h3 className="text-xl font-semibold">Does this sound familiar?</h3>
-            <ul className="mt-6 space-y-4 text-slate-700">
-              {painPoints.map((item) => (
-                <li key={item} className="flex gap-3">
-                  <span className="mt-1 h-2.5 w-2.5 rounded-full bg-sky-500" />
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      </section>
 
       <section className="bg-slate-50 py-20">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
