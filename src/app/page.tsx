@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import ServicesScrollSection from "@/components/ServicesScrollSection";
 import OwnerIssuesScrollSection from "@/components/OwnerIssuesScrollSection";
+import NextStepsSection from "@/components/NextStepsSection";
 
 export default function HomePage() {
   const rotatingWords = ["cash flow", "profitability", "decision-making"];
@@ -19,39 +20,6 @@ export default function HomePage() {
 
     return () => clearInterval(interval);
   }, []);
-
-  const services = [
-    {
-      title: "Cash Flow Clarity",
-      description:
-        "See where cash is going, what is coming in, and what needs attention before it becomes a problem.",
-    },
-    {
-      title: "Profitability Insight",
-      description:
-        "Understand what is actually driving profit so you can make better operating decisions.",
-    },
-    {
-      title: "Decision Support",
-      description:
-        "Get experienced CFO guidance without hiring a full-time CFO.",
-    },
-  ];
-
-  const testimonials = [
-    {
-      quote:
-        "John helped us understand what our numbers were actually saying and gave us a much clearer path forward.",
-      name: "Client Name",
-      role: "CEO, Example Company",
-    },
-    {
-      quote:
-        "We finally had visibility into cash flow and profitability in a way that helped us make decisions quickly.",
-      name: "Client Name",
-      role: "Owner, Example Company",
-    },
-  ];
 
   return (
     <main className="bg-white text-slate-900">
@@ -208,129 +176,7 @@ export default function HomePage() {
 
       <ServicesScrollSection />
 
-      <section className="bg-slate-50 py-20">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="max-w-3xl">
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-sky-700">
-              What we do
-            </p>
-            <h2 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">
-              Fractional CFO support built for growing companies
-            </h2>
-            <p className="mt-4 text-lg leading-8 text-slate-600">
-              We bring structure, insight, and financial decision-making support
-              to companies that have outgrown basic reporting.
-            </p>
-          </div>
-
-          <div className="mt-12 grid gap-6 md:grid-cols-3">
-            {services.map((service) => (
-              <div
-                key={service.title}
-                className="rounded-3xl bg-white p-8 shadow-sm ring-1 ring-slate-200"
-              >
-                <h3 className="text-xl font-semibold">{service.title}</h3>
-                <p className="mt-4 leading-7 text-slate-600">
-                  {service.description}
-                </p>
-              </div>
-            ))}
-          </div>
-
-          <div className="mt-10">
-            <a
-              href="/contact"
-              className="inline-flex items-center justify-center rounded-2xl bg-slate-900 px-6 py-3 text-base font-semibold text-white transition hover:bg-slate-800"
-            >
-              Book Your Complimentary Discovery Call
-            </a>
-          </div>
-        </div>
-      </section>
-
-      <section className="mx-auto max-w-7xl px-6 py-20 lg:px-8">
-        <div className="grid gap-8 rounded-[2rem] bg-slate-900 p-10 text-white lg:grid-cols-3">
-          <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-sky-300">
-              Why it matters
-            </p>
-            <h2 className="mt-3 text-3xl font-semibold tracking-tight">
-              Financial leadership without hiring a full-time CFO
-            </h2>
-          </div>
-
-          <div className="rounded-3xl bg-white/5 p-6">
-            <p className="text-4xl font-semibold">Clear reporting</p>
-            <p className="mt-2 text-slate-300">
-              Build an accounting framework you can actually run the business
-              on.
-            </p>
-          </div>
-
-          <div className="rounded-3xl bg-white/5 p-6">
-            <p className="text-4xl font-semibold">Better decisions</p>
-            <p className="mt-2 text-slate-300">
-              Turn monthly numbers into practical guidance for owners and
-              leadership teams.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-white py-20">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="max-w-3xl">
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-sky-700">
-              Credibility
-            </p>
-            <h2 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">
-              Trusted guidance for owners who need clarity fast
-            </h2>
-          </div>
-
-          <div className="mt-12 grid gap-6 md:grid-cols-2">
-            {testimonials.map((testimonial) => (
-              <figure
-                key={testimonial.quote}
-                className="rounded-3xl border border-slate-200 p-8 shadow-sm"
-              >
-                <blockquote className="text-lg leading-8 text-slate-700">
-                  “{testimonial.quote}”
-                </blockquote>
-                <figcaption className="mt-6">
-                  <div className="font-semibold text-slate-900">
-                    {testimonial.name}
-                  </div>
-                  <div className="text-slate-500">{testimonial.role}</div>
-                </figcaption>
-              </figure>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-sky-50 py-20">
-        <div className="mx-auto max-w-4xl px-6 text-center lg:px-8">
-          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-sky-700">
-            Next step
-          </p>
-          <h2 className="mt-3 text-3xl font-semibold tracking-tight sm:text-5xl">
-            Get the financial clarity you need to lead with confidence
-          </h2>
-          <p className="mt-6 text-lg leading-8 text-slate-600">
-            If your numbers are not helping you make better decisions, let’s
-            talk.
-          </p>
-          <div className="mt-8">
-            <a
-              href="/contact"
-              className="inline-flex items-center justify-center rounded-2xl bg-sky-600 px-6 py-3 text-base font-semibold text-white shadow-lg shadow-sky-600/20 transition hover:bg-sky-500"
-            >
-              Schedule Your Free Discovery Call
-            </a>
-          </div>
-        </div>
-      </section>
+      <NextStepsSection />
     </main>
   );
 }
