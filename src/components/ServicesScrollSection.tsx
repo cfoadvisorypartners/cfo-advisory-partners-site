@@ -85,7 +85,7 @@ export default function ServicesScrollSection() {
   return (
     <section className="relative bg-[#f7f3ee] lg:h-[175vh]">
       <div className="lg:sticky lg:top-0 lg:flex lg:min-h-screen lg:items-center">
-        <div className="mx-auto w-full max-w-7xl px-6 py-16 lg:px-8 lg:py-8">
+        <div className="mx-auto w-full max-w-7xl px-6 py-14 lg:px-8 lg:py-6">
           <div className="mx-auto max-w-4xl text-center">
             <p className="text-lg font-semibold uppercase tracking-[0.16em] text-orange-400 sm:text-xl">
               How We Help
@@ -94,15 +94,10 @@ export default function ServicesScrollSection() {
             <h2 className="mt-3 text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl lg:text-5xl">
               The structure, reporting, and insight your business needs
             </h2>
-
-            <p className="mt-3 text-base leading-7 text-slate-600 sm:text-lg sm:leading-8">
-              From accurate books to strategic financial guidance, we help build
-              the financial foundation your company needs to grow with clarity.
-            </p>
           </div>
 
-          <div className="mt-10 grid items-center gap-12 lg:grid-cols-[0.85fr_1.15fr]">
-            <div className="relative hidden h-[520px] overflow-hidden lg:block">
+          <div className="mt-8 grid items-center gap-10 lg:grid-cols-[0.85fr_1.15fr]">
+            <div className="relative hidden h-[500px] overflow-hidden lg:block">
               <div className="absolute inset-0">
                 {visibleCards.map((service, displayIndex) => {
                   const position = displayIndex - 2;
@@ -140,7 +135,7 @@ export default function ServicesScrollSection() {
             <div className="relative hidden lg:block">
               <div className="mx-auto flex w-full max-w-2xl flex-col">
                 <div className="rounded-[2rem] bg-white p-5 shadow-2xl shadow-slate-900/10">
-                  <div className="relative flex h-[320px] items-center justify-center overflow-hidden rounded-[1.5rem] bg-white">
+                  <div className="relative flex h-[300px] items-center justify-center overflow-hidden rounded-[1.5rem] bg-white">
                     <img
                       src={services[activeIndex].image}
                       alt={services[activeIndex].title}
@@ -158,7 +153,7 @@ export default function ServicesScrollSection() {
                   </div>
                 </div>
 
-                <div className="mt-7 text-center">
+                <div className="mt-5 text-center">
                   <a
                     href="/contact"
                     className="inline-flex items-center justify-center rounded-full bg-blue-600 px-7 py-3 text-base font-semibold !text-white shadow-lg shadow-blue-600/20 transition hover:bg-blue-500 hover:!text-white"
