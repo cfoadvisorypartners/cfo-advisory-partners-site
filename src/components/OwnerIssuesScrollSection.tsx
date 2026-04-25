@@ -101,6 +101,7 @@ function OwnerIssuesScrollSection() {
           </div>
 
           <div className="mt-10 grid items-center gap-12 lg:grid-cols-[1.15fr_0.85fr]">
+            {/* LEFT SIDE */}
             <div className="relative hidden lg:block">
               <div className="mx-auto flex w-full max-w-2xl flex-col">
                 <div className="rounded-[2rem] bg-white p-5 shadow-2xl shadow-slate-900/10">
@@ -113,11 +114,7 @@ function OwnerIssuesScrollSection() {
                   </div>
 
                   <div className="mt-5 min-h-[135px] rounded-2xl bg-white p-5 shadow-lg ring-1 ring-slate-100">
-                    <p className="text-xs font-semibold uppercase tracking-[0.2em] text-orange-400">
-                      Owner Challenge
-                    </p>
-
-                    <h3 className="mt-3 text-lg font-semibold leading-7 text-slate-900">
+                    <h3 className="text-lg font-semibold leading-7 text-slate-900">
                       {issues[activeIndex].imageTitle}
                     </h3>
 
@@ -138,6 +135,7 @@ function OwnerIssuesScrollSection() {
               </div>
             </div>
 
+            {/* RIGHT SIDE BUBBLES */}
             <div className="relative hidden h-[520px] overflow-hidden lg:block">
               <div className="absolute inset-0">
                 {visibleCards.map((issue, displayIndex) => {
@@ -158,11 +156,7 @@ function OwnerIssuesScrollSection() {
                         }px)) scale(${isActive ? 1 : 0.96})`,
                       }}
                     >
-                      <p className="text-sm font-semibold uppercase tracking-[0.22em] text-orange-400">
-                        Common Owner Concern
-                      </p>
-
-                      <h3 className="mt-3 text-lg font-semibold leading-7 text-slate-900">
+                      <h3 className="text-lg font-semibold leading-7 text-slate-900">
                         {issue.bubbleTitle}
                       </h3>
 
@@ -178,6 +172,7 @@ function OwnerIssuesScrollSection() {
               <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[#f7f3ee] to-transparent" />
             </div>
 
+            {/* MOBILE */}
             <div className="space-y-8 lg:hidden">
               {issues.map((issue) => (
                 <div
@@ -190,11 +185,7 @@ function OwnerIssuesScrollSection() {
                     className="h-auto w-full rounded-2xl object-contain"
                   />
 
-                  <p className="mt-5 text-sm font-semibold uppercase tracking-[0.2em] text-orange-400">
-                    Owner Challenge
-                  </p>
-
-                  <h3 className="mt-3 text-xl font-semibold leading-8 text-slate-900">
+                  <h3 className="mt-5 text-xl font-semibold leading-8 text-slate-900">
                     {issue.imageTitle}
                   </h3>
 
