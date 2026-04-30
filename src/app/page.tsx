@@ -63,7 +63,7 @@ export default function HomePage() {
               </nav>
 
               <a
-                href="/contact"
+                href="/lead"
                 className="inline-flex items-center justify-center rounded-full bg-orange-400 px-5 py-2.5 text-sm font-semibold !text-white transition hover:bg-orange-300 hover:!text-white"
               >
                 Schedule a Call
@@ -90,7 +90,7 @@ export default function HomePage() {
 
               <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
                 <a
-                  href="/contact"
+                  href="/lead"
                   className="inline-flex items-center justify-center rounded-full bg-blue-600 px-7 py-3 text-base font-semibold !text-white shadow-lg shadow-blue-600/25 transition hover:bg-blue-500 hover:!text-white"
                 >
                   Schedule Your Free Discovery Call

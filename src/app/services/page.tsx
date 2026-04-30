@@ -34,7 +34,7 @@ export default function ServicesPage() {
             business needs.
           </p>
           <div className="mt-6">
-            <Link href="/contact" className="inline-block no-underline">
+            <Link href="/lead" className="inline-block no-underline">
               <span
                 className="inline-block rounded-lg bg-slate-900 px-6 py-3 text-base font-medium hover:bg-slate-800"
                 style={{ color: "#ffffff" }}

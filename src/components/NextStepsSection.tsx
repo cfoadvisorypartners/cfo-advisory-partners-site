@@ -105,7 +105,7 @@ function NextStepsSection() {
 
           <div className="mt-10 text-center">
             <a
-              href="/contact"
+              href="/lead"
               className="inline-flex items-center justify-center rounded-full bg-blue-600 px-8 py-4 text-base font-semibold !text-white shadow-lg shadow-blue-600/25 transition hover:bg-blue-500 hover:!text-white"
             >
               Schedule Your Free Discovery Call
