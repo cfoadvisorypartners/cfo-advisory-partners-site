@@ -36,7 +36,7 @@ export default function AboutPage() {
           </p>
 
           <div className="mt-6">
-            <Link href="/contact" className="inline-block no-underline">
+            <Link href="/lead" className="inline-block no-underline">
               <span
                 className="inline-block rounded-lg bg-white px-6 py-3 text-base font-medium hover:bg-slate-100"
                 style={{ color: "#0f172a" }}
