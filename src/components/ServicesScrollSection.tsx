@@ -92,7 +92,7 @@ export default function ServicesScrollSection() {
             </p>
 
             <h2 className="mt-3 text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl lg:text-5xl">
-              The structure, reporting, and insight your business needs
+              We'll build the structure, reporting, and insight your business needs
             </h2>
           </div>
 

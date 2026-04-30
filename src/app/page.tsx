@@ -80,7 +80,7 @@ export default function HomePage() {
               <div className="mt-2 flex justify-center">
                 <div className="flex w-full max-w-4xl items-baseline justify-center text-center text-2xl font-semibold tracking-tight text-white sm:text-4xl lg:text-5xl">
                   <span className="shrink-0">
-                    We’ll bring clarity to your&nbsp;
+                    We’ll bring the clarity to your&nbsp;
                   </span>
                   <span className="inline-block min-w-[17ch] text-left text-orange-400 transition-opacity duration-500">
                     {activeWord}

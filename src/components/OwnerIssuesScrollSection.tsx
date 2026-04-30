@@ -90,7 +90,7 @@ function OwnerIssuesScrollSection() {
             </p>
 
             <h2 className="mt-3 text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl lg:text-5xl">
-              When the numbers are unclear, every decision feels harder
+              When the numbers are unclear, every decision is harder
             </h2>
           </div>
 

@@ -11,7 +11,7 @@ export default function LeadPage() {
         <div className="grid gap-8 rounded-[2rem] bg-slate-950 p-10 text-white lg:grid-cols-2">
           <div>
             <div className="text-xs uppercase tracking-[0.35em] text-slate-400">For owners, presidents, and CEOs</div>
-            <h1 className="mt-4 text-4xl font-semibold">You have accounting. Now you need financial clarity.</h1>
+            <h1 className="mt-4 text-4xl font-semibold">You have accounting. Now let's give you financial clarity.</h1>
             <p className="mt-5 max-w-xl text-lg leading-8 text-slate-300">
               Most growing businesses have bookkeeping in place but still lack clear visibility into cash, profitability, and forward planning.
             </p>
