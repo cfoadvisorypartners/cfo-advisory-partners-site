@@ -169,11 +169,11 @@ export default function AboutPage() {
 
             <div className="mt-10">
               <Link
-                href="/lead"
-                className="inline-flex items-center justify-center rounded-xl bg-white px-8 py-4 text-base font-semibold text-black transition hover:bg-slate-100"
-              >
-                Schedule Your Free Discovery Call
-              </Link>
+  href="/lead"
+  className="inline-flex items-center justify-center rounded-xl bg-white px-8 py-4 text-base font-semibold !text-slate-900 [color:#0f172a] transition hover:bg-slate-100"
+>
+  Schedule Your Free Discovery Call
+</Link>
             </div>
           </div>
         </section>
