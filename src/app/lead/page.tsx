@@ -1,9 +1,9 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 import { LeadForm } from "@/components/lead-form";
 import { SiteFooter } from "@/components/site-footer";
-import { SiteHeader } from "@/components/site-header";
 import { leadPageBullets } from "@/lib/site-content";
 
 export default function LeadPage() {
@@ -30,69 +30,95 @@ export default function LeadPage() {
 
   return (
     <div className="min-h-screen bg-stone-50 text-slate-900">
-      <SiteHeader />
+      {/* Custom header without Schedule CTA */}
+      <header className="border-b border-slate-200 bg-white">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 lg:px-10">
+          <Link href="/" className="block">
+            <div className="text-xs font-semibold uppercase tracking-[0.35em] text-slate-700">
+              CFO Advisory Partners
+            </div>
+            <div className="mt-1 text-sm text-slate-600">
+              Stop Guessing. Start Growing.
+            </div>
+          </Link>
 
-      <main className="mx-auto max-w-7xl px-6 py-16 lg:px-10">
-        <div className="overflow-hidden rounded-[2rem] bg-slate-950 text-white shadow-2xl shadow-slate-900/15">
-          <div className="grid lg:grid-cols-[1.05fr_0.95fr]">
-            <div className="relative min-h-[520px] overflow-hidden lg:min-h-[620px]">
-              {leadImages.map((image, index) => (
-                <img
-                  key={image}
-                  src={image}
-                  alt="Business owner working with CFO Advisory Partners"
-                  className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 ${
-                    index === activeImageIndex ? "opacity-100" : "opacity-0"
-                  }`}
-                />
-              ))}
+          <nav className="hidden items-center gap-8 text-sm font-medium text-slate-800 md:flex">
+            <Link href="/" className="transition hover:text-blue-700">
+              Home
+            </Link>
+            <Link href="/about" className="transition hover:text-blue-700">
+              About
+            </Link>
+            <Link href="/services" className="transition hover:text-blue-700">
+              Services
+            </Link>
+            <Link href="/contact" className="transition hover:text-blue-700">
+              Contact
+            </Link>
+          </nav>
+        </div>
+      </header>
 
-              <div className="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-slate-950/65 to-slate-950/20" />
-
-              <div className="relative z-10 flex min-h-[520px] flex-col justify-center p-8 lg:min-h-[620px] lg:p-12">
-                <div className="text-xs uppercase tracking-[0.35em] text-orange-300">
-                  For owners, presidents, and CEOs
-                </div>
-
-                <h1 className="mt-4 max-w-2xl text-4xl font-semibold tracking-tight sm:text-5xl">
-                  You have accounting. Now let&apos;s give you financial clarity.
-                </h1>
-
-                <p className="mt-5 max-w-xl text-lg leading-8 text-slate-200">
-                  Most growing businesses have bookkeeping in place but still
-                  lack clear visibility into cash, profitability, and forward
-                  planning.
-                </p>
-
-                <ul className="mt-8 space-y-4 text-slate-100">
-                  {leadPageBullets.map((item) => (
-                    <li key={item} className="flex gap-3">
-                      <span className="mt-2 h-2 w-2 rounded-full bg-orange-300" />
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-
-                <div className="mt-8 flex gap-2">
-                  {leadImages.map((image, index) => (
-                    <button
-                      key={image}
-                      type="button"
-                      onClick={() => setActiveImageIndex(index)}
-                      className={`h-2 rounded-full transition-all ${
-                        index === activeImageIndex
-                          ? "w-10 bg-orange-300"
-                          : "w-2 bg-white/40 hover:bg-white/70"
-                      }`}
-                      aria-label={`Show lead image ${index + 1}`}
-                    />
-                  ))}
-                </div>
-              </div>
+      <main className="mx-auto max-w-7xl px-6 py-14 lg:px-10">
+        <div className="grid overflow-hidden rounded-[2rem] bg-slate-950 shadow-2xl shadow-slate-900/15 lg:grid-cols-[1.05fr_0.95fr]">
+          {/* Left side: wording + form */}
+          <div className="p-8 text-white lg:p-12">
+            <div className="text-xs uppercase tracking-[0.35em] text-orange-300">
+              For owners, presidents, and CEOs
             </div>
 
-            <div className="flex items-center bg-slate-950 p-6 lg:p-10">
+            <h1 className="mt-4 max-w-2xl text-4xl font-semibold tracking-tight sm:text-5xl">
+              You have accounting. Now let&apos;s give you financial clarity.
+            </h1>
+
+            <p className="mt-5 max-w-xl text-lg leading-8 text-slate-200">
+              Most growing businesses have bookkeeping in place but still lack
+              clear visibility into cash, profitability, and forward planning.
+            </p>
+
+            <ul className="mt-8 space-y-4 text-slate-100">
+              {leadPageBullets.map((item) => (
+                <li key={item} className="flex gap-3">
+                  <span className="mt-2 h-2 w-2 rounded-full bg-orange-300" />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+
+            <div className="mt-10">
               <LeadForm />
+            </div>
+          </div>
+
+          {/* Right side: rotating images only */}
+          <div className="relative min-h-[520px] overflow-hidden bg-slate-900 lg:min-h-[760px]">
+            {leadImages.map((image, index) => (
+              <img
+                key={image}
+                src={image}
+                alt="Business owner supported by CFO Advisory Partners"
+                className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 ${
+                  index === activeImageIndex ? "opacity-100" : "opacity-0"
+                }`}
+              />
+            ))}
+
+            <div className="absolute inset-0 bg-slate-950/10" />
+
+            <div className="absolute bottom-8 left-1/2 flex -translate-x-1/2 gap-2">
+              {leadImages.map((image, index) => (
+                <button
+                  key={image}
+                  type="button"
+                  onClick={() => setActiveImageIndex(index)}
+                  className={`h-2 rounded-full transition-all ${
+                    index === activeImageIndex
+                      ? "w-10 bg-white"
+                      : "w-2 bg-white/50 hover:bg-white/80"
+                  }`}
+                  aria-label={`Show lead image ${index + 1}`}
+                />
+              ))}
             </div>
           </div>
         </div>
