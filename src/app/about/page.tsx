@@ -66,8 +66,10 @@ export default function AboutPage() {
       <SiteHeader />
 
       <main>
+        {/* HERO */}
         <section className="relative overflow-hidden bg-white">
           <div className="mx-auto grid min-h-[640px] max-w-7xl items-center gap-12 px-6 py-20 lg:grid-cols-[1.05fr_0.95fr] lg:px-10">
+            {/* LEFT CONTENT */}
             <div className="relative z-10">
               <p className="text-sm font-semibold uppercase tracking-[0.35em] text-blue-700">
                 About Us
@@ -77,10 +79,20 @@ export default function AboutPage() {
                 Financial clarity. Stronger decisions. Built for what’s next.
               </h1>
 
-              <p className="mt-7 max-w-2xl text-xl leading-9 text-slate-600">
-                Strategic financial guidance for established businesses ready
-                to grow with confidence.
-              </p>
+              {/* UPDATED COPY */}
+              <div className="mt-7 max-w-2xl space-y-5 text-lg leading-8 text-slate-600">
+                <p>
+                  With over 15 years of combined experience in accounting, finance, and advisory, CFO Advisory Partners works with businesses to bring clarity and structure to their financials.
+                </p>
+
+                <p>
+                  We collaborate closely with our partners to better understand where they stand today, where they want to go, and how to get there.
+                </p>
+
+                <p>
+                  By combining reporting, insight, and practical business perspective, we help translate financial information into decisions—so business owners and leadership teams can move forward with confidence.
+                </p>
+              </div>
 
               <div className="mt-10">
                 <Link
@@ -92,6 +104,7 @@ export default function AboutPage() {
               </div>
             </div>
 
+            {/* RIGHT IMAGE */}
             <div className="relative hidden h-[560px] overflow-hidden rounded-[2rem] lg:block">
               <img
                 src="/images/about/about-hero.jpg"
@@ -103,6 +116,7 @@ export default function AboutPage() {
           </div>
         </section>
 
+        {/* WHO WE WORK WITH */}
         <section className="border-y border-slate-200 bg-white px-6 py-16 lg:px-10">
           <div className="mx-auto max-w-5xl text-center">
             <p className="text-sm font-semibold uppercase tracking-[0.35em] text-slate-900">
@@ -110,33 +124,26 @@ export default function AboutPage() {
             </p>
 
             <p className="mx-auto mt-5 max-w-2xl text-lg leading-8 text-slate-600">
-              Established businesses seeking stronger financial insight and
-              confident decision-making.
+              Established businesses seeking stronger financial insight and confident decision-making.
             </p>
 
             <div className="mt-12 grid gap-10 md:grid-cols-3">
               <div className="flex flex-col items-center text-center">
-                <div className="text-slate-950">
-                  <ShieldIcon />
-                </div>
+                <ShieldIcon />
                 <h2 className="mt-5 text-lg font-medium text-slate-900">
                   Private Businesses
                 </h2>
               </div>
 
               <div className="flex flex-col items-center border-slate-200 text-center md:border-x">
-                <div className="text-slate-950">
-                  <BuildingIcon />
-                </div>
+                <BuildingIcon />
                 <h2 className="mt-5 text-lg font-medium text-slate-900">
                   Entrepreneurial Companies
                 </h2>
               </div>
 
               <div className="flex flex-col items-center text-center">
-                <div className="text-slate-950">
-                  <GrowthIcon />
-                </div>
+                <GrowthIcon />
                 <h2 className="mt-5 text-lg font-medium text-slate-900">
                   Growth-Minded Leaders
                 </h2>
@@ -145,6 +152,7 @@ export default function AboutPage() {
           </div>
         </section>
 
+        {/* CTA SECTION */}
         <section className="relative overflow-hidden bg-slate-950 px-6 py-20 text-white lg:px-10">
           <div className="absolute inset-0 opacity-20">
             <div className="absolute -right-24 -top-24 h-96 w-96 rounded-full border border-blue-400/40" />
