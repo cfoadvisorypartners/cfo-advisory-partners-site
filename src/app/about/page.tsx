@@ -24,11 +24,7 @@ function ShieldIcon() {
 function BuildingIcon() {
   return (
     <svg viewBox="0 0 24 24" className="h-14 w-14" fill="none">
-      <path
-        d="M6 21V7h12v14"
-        stroke="currentColor"
-        strokeWidth="1.8"
-      />
+      <path d="M6 21V7h12v14" stroke="currentColor" strokeWidth="1.8" />
       <path
         d="M9 21v-4h6v4M9 10h1M14 10h1M9 14h1M14 14h1M4 21h16"
         stroke="currentColor"
@@ -69,6 +65,7 @@ export default function AboutPage() {
         {/* HERO */}
         <section className="relative overflow-hidden bg-white">
           <div className="mx-auto grid min-h-[640px] max-w-7xl items-center gap-12 px-6 py-20 lg:grid-cols-[1.05fr_0.95fr] lg:px-10">
+            
             {/* LEFT CONTENT */}
             <div className="relative z-10">
               <p className="text-sm font-semibold uppercase tracking-[0.35em] text-blue-700">
@@ -76,10 +73,9 @@ export default function AboutPage() {
               </p>
 
               <h1 className="mt-6 max-w-3xl text-5xl font-semibold tracking-tight text-slate-950 sm:text-6xl">
-                Financial clarity. Stronger decisions. Built for what’s next.
+                Financial guidance that is practical, clear, and built for real-world decisions.
               </h1>
 
-              {/* UPDATED COPY */}
               <div className="mt-7 max-w-2xl space-y-5 text-lg leading-8 text-slate-600">
                 <p>
                   With over 15 years of combined experience in accounting, finance, and advisory, CFO Advisory Partners works with businesses to bring clarity and structure to their financials.
@@ -128,6 +124,7 @@ export default function AboutPage() {
             </p>
 
             <div className="mt-12 grid gap-10 md:grid-cols-3">
+              
               <div className="flex flex-col items-center text-center">
                 <ShieldIcon />
                 <h2 className="mt-5 text-lg font-medium text-slate-900">
@@ -148,6 +145,7 @@ export default function AboutPage() {
                   Growth-Minded Leaders
                 </h2>
               </div>
+
             </div>
           </div>
         </section>
@@ -172,7 +170,7 @@ export default function AboutPage() {
             <div className="mt-10">
               <Link
                 href="/lead"
-                className="inline-flex items-center justify-center rounded-xl bg-white px-8 py-4 text-base font-semibold text-slate-950 transition hover:bg-slate-100"
+                className="inline-flex items-center justify-center rounded-xl bg-white px-8 py-4 text-base font-semibold text-black transition hover:bg-slate-100"
               >
                 Schedule Your Free Discovery Call
               </Link>
