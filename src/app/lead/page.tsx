@@ -60,11 +60,11 @@ export default function LeadPage() {
       </header>
 
       <main className="mx-auto max-w-7xl px-6 py-14 lg:px-10">
-        <div className="grid overflow-hidden rounded-[2rem] bg-slate-950 shadow-2xl shadow-slate-900/15 lg:grid-cols-[1.05fr_0.95fr]">
+        <div className="grid overflow-hidden rounded-[2rem] bg-slate-950 shadow-2xl shadow-slate-900/15 lg:grid-cols-[0.9fr_1.1fr]">
           {/* Left side: wording + form */}
           <div className="p-8 text-white lg:p-12">
             <div className="text-xs uppercase tracking-[0.35em] text-orange-300">
-              For owners, presidents, and CEOs
+              For business owners, presidents, and CEOs
             </div>
 
             <h1 className="mt-4 max-w-2xl text-4xl font-semibold tracking-tight sm:text-5xl">
@@ -91,13 +91,13 @@ export default function LeadPage() {
           </div>
 
           {/* Right side: rotating images only */}
-          <div className="relative min-h-[520px] overflow-hidden bg-slate-900 lg:min-h-[760px]">
+          <div className="relative min-h-[600px] overflow-hidden bg-slate-900 lg:min-h-[900px]">
             {leadImages.map((image, index) => (
               <img
                 key={image}
                 src={image}
                 alt="Business owner supported by CFO Advisory Partners"
-                className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 ${
+                className={`absolute inset-0 h-full w-full object-cover object-center transition-opacity duration-1000 ${
                   index === activeImageIndex ? "opacity-100" : "opacity-0"
                 }`}
               />
