@@ -30,9 +30,8 @@ export default function LeadPage() {
 
   return (
     <div className="min-h-screen bg-stone-50 text-slate-900">
-      {/* Custom header without Schedule CTA */}
       <header className="border-b border-slate-200 bg-white">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 lg:px-10">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-10">
           <Link href="/" className="block">
             <div className="text-xs font-semibold uppercase tracking-[0.35em] text-slate-700">
               CFO Advisory Partners
@@ -59,53 +58,49 @@ export default function LeadPage() {
         </div>
       </header>
 
-      <main className="mx-auto max-w-7xl px-6 py-14 lg:px-10">
+      <main className="mx-auto max-w-7xl px-6 py-8 lg:px-10">
         <div className="grid overflow-hidden rounded-[2rem] bg-slate-950 shadow-2xl shadow-slate-900/15 lg:grid-cols-[0.9fr_1.1fr]">
-          {/* Left side: wording + form */}
-          <div className="p-8 text-white lg:p-12">
-            <div className="text-xs uppercase tracking-[0.35em] text-orange-300">
-              For business owners, presidents, and CEOs
+          <div className="p-6 text-white lg:p-8">
+            <div className="text-xs uppercase tracking-[0.3em] text-orange-300">
+              For owners, presidents, and CEOs
             </div>
 
-            <h1 className="mt-4 max-w-2xl text-4xl font-semibold tracking-tight sm:text-5xl">
+            <h1 className="mt-3 max-w-2xl text-3xl font-semibold tracking-tight sm:text-4xl">
               You have accounting. Now let&apos;s give you financial clarity.
             </h1>
 
-            <p className="mt-5 max-w-xl text-lg leading-8 text-slate-200">
+            <p className="mt-4 max-w-xl text-base leading-7 text-slate-200">
               Most growing businesses have bookkeeping in place but still lack
               clear visibility into cash, profitability, and forward planning.
             </p>
 
-            <ul className="mt-8 space-y-4 text-slate-100">
+            <ul className="mt-5 space-y-2 text-sm leading-6 text-slate-100">
               {leadPageBullets.map((item) => (
                 <li key={item} className="flex gap-3">
-                  <span className="mt-2 h-2 w-2 rounded-full bg-orange-300" />
+                  <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-orange-300" />
                   <span>{item}</span>
                 </li>
               ))}
             </ul>
 
-            <div className="mt-10">
+            <div className="mt-6">
               <LeadForm />
             </div>
           </div>
 
-          {/* Right side: rotating images only */}
-          <div className="relative min-h-[600px] overflow-hidden bg-slate-900 lg:min-h-[900px]">
+          <div className="relative flex min-h-[520px] items-center justify-center overflow-hidden bg-slate-900 p-6 lg:min-h-[720px]">
             {leadImages.map((image, index) => (
               <img
                 key={image}
                 src={image}
                 alt="Business owner supported by CFO Advisory Partners"
-                className={`absolute inset-0 h-full w-full object-cover object-center transition-opacity duration-1000 ${
+                className={`absolute inset-0 m-auto max-h-full max-w-full object-contain transition-opacity duration-1000 ${
                   index === activeImageIndex ? "opacity-100" : "opacity-0"
                 }`}
               />
             ))}
 
-            <div className="absolute inset-0 bg-slate-950/10" />
-
-            <div className="absolute bottom-8 left-1/2 flex -translate-x-1/2 gap-2">
+            <div className="absolute bottom-6 left-1/2 flex -translate-x-1/2 gap-2">
               {leadImages.map((image, index) => (
                 <button
                   key={image}
