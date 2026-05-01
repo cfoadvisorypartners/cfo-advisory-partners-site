@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 import { LeadForm } from "@/components/lead-form";
-import { SiteFooter } from "@/components/site-footer";
 import { leadPageBullets } from "@/lib/site-content";
 
 export default function LeadPage() {
@@ -31,17 +30,17 @@ export default function LeadPage() {
   return (
     <div className="min-h-screen bg-stone-50 text-slate-900">
       <header className="border-b border-slate-200 bg-white">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-10">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-3 lg:px-10">
           <Link href="/" className="block">
-            <div className="text-xs font-semibold uppercase tracking-[0.35em] text-slate-700">
+            <div className="text-xs font-semibold uppercase tracking-[0.25em] text-slate-700">
               CFO Advisory Partners
             </div>
-            <div className="mt-1 text-sm text-slate-600">
+            <div className="mt-0.5 text-xs text-slate-600">
               Stop Guessing. Start Growing.
             </div>
           </Link>
 
-          <nav className="hidden items-center gap-8 text-sm font-medium text-slate-800 md:flex">
+          <nav className="hidden items-center gap-6 text-sm font-medium text-slate-800 md:flex">
             <Link href="/" className="transition hover:text-blue-700">
               Home
             </Link>
@@ -58,37 +57,37 @@ export default function LeadPage() {
         </div>
       </header>
 
-      <main className="mx-auto max-w-7xl px-6 py-8 lg:px-10">
-        <div className="grid overflow-hidden rounded-[2rem] bg-slate-950 shadow-2xl shadow-slate-900/15 lg:grid-cols-[0.9fr_1.1fr]">
-          <div className="p-6 text-white lg:p-8">
-            <div className="text-xs uppercase tracking-[0.3em] text-orange-300">
+      <main className="mx-auto max-w-7xl px-6 py-4 lg:px-10">
+        <div className="grid overflow-hidden rounded-[2rem] bg-slate-950 shadow-2xl shadow-slate-900/15 lg:h-[calc(100vh-96px)] lg:grid-cols-[0.9fr_1.1fr]">
+          <div className="overflow-y-auto p-5 text-white lg:p-6">
+            <div className="text-[11px] uppercase tracking-[0.25em] text-orange-300">
               For owners, presidents, and CEOs
             </div>
 
-            <h1 className="mt-3 max-w-2xl text-3xl font-semibold tracking-tight sm:text-4xl">
+            <h1 className="mt-2 max-w-2xl text-2xl font-semibold tracking-tight sm:text-3xl lg:text-[2rem] lg:leading-tight">
               You have accounting. Now let&apos;s give you financial clarity.
             </h1>
 
-            <p className="mt-4 max-w-xl text-base leading-7 text-slate-200">
+            <p className="mt-3 max-w-xl text-sm leading-6 text-slate-200">
               Most growing businesses have bookkeeping in place but still lack
               clear visibility into cash, profitability, and forward planning.
             </p>
 
-            <ul className="mt-5 space-y-2 text-sm leading-6 text-slate-100">
+            <ul className="mt-4 space-y-1.5 text-sm leading-5 text-slate-100">
               {leadPageBullets.map((item) => (
-                <li key={item} className="flex gap-3">
-                  <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-orange-300" />
+                <li key={item} className="flex gap-2.5">
+                  <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-orange-300" />
                   <span>{item}</span>
                 </li>
               ))}
             </ul>
 
-            <div className="mt-6">
+            <div className="mt-4">
               <LeadForm />
             </div>
           </div>
 
-          <div className="relative flex min-h-[520px] items-center justify-center overflow-hidden bg-slate-900 p-6 lg:min-h-[720px]">
+          <div className="relative hidden items-center justify-center overflow-hidden bg-slate-900 p-5 lg:flex">
             {leadImages.map((image, index) => (
               <img
                 key={image}
@@ -100,7 +99,7 @@ export default function LeadPage() {
               />
             ))}
 
-            <div className="absolute bottom-6 left-1/2 flex -translate-x-1/2 gap-2">
+            <div className="absolute bottom-5 left-1/2 flex -translate-x-1/2 gap-2">
               {leadImages.map((image, index) => (
                 <button
                   key={image}
@@ -118,8 +117,6 @@ export default function LeadPage() {
           </div>
         </div>
       </main>
-
-      <SiteFooter />
     </div>
   );
 }
