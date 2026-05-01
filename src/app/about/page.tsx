@@ -1,54 +1,177 @@
 import Link from "next/link";
-import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
-import { SectionHeading } from "@/components/section-heading";
+
+function ShieldIcon() {
+  return (
+    <svg viewBox="0 0 24 24" className="h-14 w-14" fill="none">
+      <path
+        d="M12 3 5 6v5c0 4.5 2.8 8.5 7 10 4.2-1.5 7-5.5 7-10V6l-7-3Z"
+        stroke="currentColor"
+        strokeWidth="1.8"
+        strokeLinejoin="round"
+      />
+      <path
+        d="m9 12 2 2 4-5"
+        stroke="currentColor"
+        strokeWidth="1.8"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+function BuildingIcon() {
+  return (
+    <svg viewBox="0 0 24 24" className="h-14 w-14" fill="none">
+      <path
+        d="M6 21V7h12v14"
+        stroke="currentColor"
+        strokeWidth="1.8"
+      />
+      <path
+        d="M9 21v-4h6v4M9 10h1M14 10h1M9 14h1M14 14h1M4 21h16"
+        stroke="currentColor"
+        strokeWidth="1.8"
+        strokeLinecap="round"
+      />
+    </svg>
+  );
+}
+
+function GrowthIcon() {
+  return (
+    <svg viewBox="0 0 24 24" className="h-14 w-14" fill="none">
+      <path
+        d="M4 16 9 11l4 4 7-8"
+        stroke="currentColor"
+        strokeWidth="1.8"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M15 7h5v5"
+        stroke="currentColor"
+        strokeWidth="1.8"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
 
 export default function AboutPage() {
   return (
-    <div className="min-h-screen bg-stone-50 text-slate-900">
+    <div className="min-h-screen bg-white text-slate-950">
       <SiteHeader />
-      <main className="mx-auto max-w-5xl px-6 py-20 lg:px-10">
-        
-        <SectionHeading
-          eyebrow="About Us"
-          title="Financial guidance that is practical, clear, and built for real-world decisions."
-          description="We partner with leaders who want more than clean books. They want to understand what is driving profit, where cash is going, and how to plan ahead with confidence."
-        />
 
-        <div className="mt-10 space-y-6 text-lg leading-8 text-slate-600">
-          <p>
-            CFO Advisory Partners works with established businesses that already have bookkeeping support in place but need a stronger financial framework, better reporting discipline, and more confident decision-making.
-          </p>
-          <p>
-            Our role is to bring structure to the financial side of the business, establish a reliable monthly cadence, and provide strategic guidance that leadership can actually use.
-          </p>
-        </div>
+      <main>
+        <section className="relative overflow-hidden bg-white">
+          <div className="mx-auto grid min-h-[640px] max-w-7xl items-center gap-12 px-6 py-20 lg:grid-cols-[1.05fr_0.95fr] lg:px-10">
+            <div className="relative z-10">
+              <p className="text-sm font-semibold uppercase tracking-[0.35em] text-blue-700">
+                About Us
+              </p>
 
-        {/* CTA SECTION */}
-        <section className="mt-16 rounded-2xl bg-slate-900 p-10 text-center max-w-3xl mx-auto">
-          <h2 className="text-2xl font-semibold text-white">
-            Ready for better financial clarity?
-          </h2>
+              <h1 className="mt-6 max-w-3xl text-5xl font-semibold tracking-tight text-slate-950 sm:text-6xl">
+                Financial clarity. Stronger decisions. Built for what’s next.
+              </h1>
 
-          <p className="mt-4 text-lg leading-8 text-slate-200">
-            Schedule a free discovery call to talk through your business,
-            your financial challenges, and where you need better visibility.
-          </p>
+              <p className="mt-7 max-w-2xl text-xl leading-9 text-slate-600">
+                Strategic financial guidance for established businesses ready
+                to grow with confidence.
+              </p>
 
-          <div className="mt-6">
-            <Link href="/lead" className="inline-block no-underline">
-              <span
-                className="inline-block rounded-lg bg-white px-6 py-3 text-base font-medium hover:bg-slate-100"
-                style={{ color: "#0f172a" }}
-              >
-                Schedule Your Free Discovery Call
-              </span>
-            </Link>
+              <div className="mt-10">
+                <Link
+                  href="/lead"
+                  className="inline-flex items-center justify-center rounded-xl bg-slate-950 px-8 py-4 text-base font-semibold !text-white shadow-lg shadow-slate-950/20 transition hover:bg-blue-700 hover:!text-white"
+                >
+                  Schedule Your Free Discovery Call
+                </Link>
+              </div>
+            </div>
+
+            <div className="relative hidden h-[560px] overflow-hidden rounded-[2rem] lg:block">
+              <img
+                src="/images/about/about-hero.jpg"
+                alt="Business owner reviewing financial strategy"
+                className="h-full w-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-l from-transparent via-white/5 to-white/40" />
+            </div>
           </div>
         </section>
 
+        <section className="border-y border-slate-200 bg-white px-6 py-16 lg:px-10">
+          <div className="mx-auto max-w-5xl text-center">
+            <p className="text-sm font-semibold uppercase tracking-[0.35em] text-slate-900">
+              Who We Work With
+            </p>
+
+            <p className="mx-auto mt-5 max-w-2xl text-lg leading-8 text-slate-600">
+              Established businesses seeking stronger financial insight and
+              confident decision-making.
+            </p>
+
+            <div className="mt-12 grid gap-10 md:grid-cols-3">
+              <div className="flex flex-col items-center text-center">
+                <div className="text-slate-950">
+                  <ShieldIcon />
+                </div>
+                <h2 className="mt-5 text-lg font-medium text-slate-900">
+                  Private Businesses
+                </h2>
+              </div>
+
+              <div className="flex flex-col items-center border-slate-200 text-center md:border-x">
+                <div className="text-slate-950">
+                  <BuildingIcon />
+                </div>
+                <h2 className="mt-5 text-lg font-medium text-slate-900">
+                  Entrepreneurial Companies
+                </h2>
+              </div>
+
+              <div className="flex flex-col items-center text-center">
+                <div className="text-slate-950">
+                  <GrowthIcon />
+                </div>
+                <h2 className="mt-5 text-lg font-medium text-slate-900">
+                  Growth-Minded Leaders
+                </h2>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="relative overflow-hidden bg-slate-950 px-6 py-20 text-white lg:px-10">
+          <div className="absolute inset-0 opacity-20">
+            <div className="absolute -right-24 -top-24 h-96 w-96 rounded-full border border-blue-400/40" />
+            <div className="absolute -right-10 top-24 h-72 w-72 rounded-full border border-blue-400/30" />
+            <div className="absolute bottom-[-120px] left-[-120px] h-96 w-96 rounded-full border border-blue-400/20" />
+          </div>
+
+          <div className="relative mx-auto max-w-4xl text-center">
+            <h2 className="text-4xl font-semibold tracking-tight">
+              Confidence comes from clarity.
+            </h2>
+
+            <p className="mt-6 text-xl leading-8 text-slate-200">
+              Let’s start a conversation about your business.
+            </p>
+
+            <div className="mt-10">
+              <Link
+                href="/lead"
+                className="inline-flex items-center justify-center rounded-xl bg-white px-8 py-4 text-base font-semibold text-slate-950 transition hover:bg-slate-100"
+              >
+                Schedule Your Free Discovery Call
+              </Link>
+            </div>
+          </div>
+        </section>
       </main>
-      <SiteFooter />
     </div>
   );
 }
