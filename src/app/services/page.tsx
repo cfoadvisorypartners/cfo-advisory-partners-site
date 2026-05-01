@@ -101,7 +101,7 @@ export default function ServicesPage() {
                     key={service.title}
                     type="button"
                     onClick={() => setActiveIndex(index)}
-                    className={`rounded-[1.5rem] p-5 text-left transition-all duration-500 ${
+                    className={`rounded-[1.5rem] p-5 text-left ${
                       isActive
                         ? "bg-slate-950 text-white shadow-xl shadow-slate-900/20"
                         : "bg-white text-slate-900 shadow-sm hover:bg-slate-100"
@@ -109,7 +109,7 @@ export default function ServicesPage() {
                   >
                     <h2 className="text-lg font-semibold">{service.title}</h2>
                     <p
-                      className={`mt-2 text-sm leading-6 transition-colors duration-500 ${
+                      className={`mt-2 text-sm leading-6 ${
                         isActive ? "text-slate-200" : "text-slate-600"
                       }`}
                     >
@@ -123,11 +123,22 @@ export default function ServicesPage() {
 
           <div className="overflow-hidden rounded-[2rem] bg-white shadow-2xl shadow-slate-900/10 ring-1 ring-slate-200">
             <div className="relative flex h-[560px] items-center justify-center bg-white p-6">
+              {/* Preload all images invisibly so image loading does not lag behind tile rotation */}
+              <div className="hidden">
+                {services.map((service) => (
+                  <img
+                    key={`preload-${service.image}`}
+                    src={service.image}
+                    alt=""
+                  />
+                ))}
+              </div>
+
               <img
-                key={activeService.image}
+                key={activeService.title}
                 src={activeService.image}
                 alt={activeService.title}
-                className="max-h-full max-w-full object-contain transition-opacity duration-500"
+                className="max-h-full max-w-full object-contain"
               />
 
               <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-slate-950/85 via-slate-950/45 to-transparent p-8 text-white">
