@@ -1,105 +1,4 @@
 import Link from "next/link";
-import { Mail, Phone, CalendarDays } from "lucide-react";
-import { SiteHeader } from "@/components/site-header";
-
-export default function ContactPage() {
-  return (
-    <div className="min-h-screen bg-white text-slate-900">
-      <SiteHeader />
-
-      <main className="relative min-h-[calc(100vh-88px)] overflow-hidden">
-        <div className="absolute inset-0">
-          <img
-            src="/images/contact/contact-hero.jpg"
-            alt="CFO Advisory Partners contact"
-            className="h-full w-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-white via-white/90 to-white/10" />
-        </div>
-
-        <section className="relative mx-auto flex min-h-[calc(100vh-88px)] max-w-7xl items-center px-6 py-20 lg:px-8">
-          <div className="max-w-xl">
-            <p className="text-sm font-semibold uppercase tracking-[0.35em] text-blue-700">
-              Contact
-            </p>
-
-            <h1 className="mt-6 text-5xl font-semibold tracking-tight text-slate-950 sm:text-6xl">
-              We’re here to help.
-            </h1>
-
-            <p className="mt-7 text-lg leading-8 text-slate-600">
-              Whether you need stronger reporting, better cash visibility, or a
-              more reliable monthly cadence, we’d love to start the
-              conversation.
-            </p>
-
-            <div className="mt-14 space-y-8">
-              <div className="flex items-center gap-5 border-b border-slate-200 pb-7">
-                <div className="flex h-14 w-14 items-center justify-center rounded-full bg-slate-100 text-blue-700">
-                  <Mail className="h-6 w-6" />
-                </div>
-
-                <div>
-                  <p className="text-sm font-semibold uppercase tracking-[0.25em] text-blue-700">
-                    Email
-                  </p>
-                  <a
-                    href="mailto:info@cfoadvisorypartners.net"
-                    className="mt-2 block text-lg font-medium text-slate-700 transition hover:text-blue-700"
-                  >
-                    info@cfoadvisorypartners.net
-                  </a>
-                </div>
-              </div>
-
-              <div className="flex items-center gap-5 border-b border-slate-200 pb-7">
-                <div className="flex h-14 w-14 items-center justify-center rounded-full bg-slate-100 text-blue-700">
-                  <Phone className="h-6 w-6" />
-                </div>
-
-                <div>
-                  <p className="text-sm font-semibold uppercase tracking-[0.25em] text-blue-700">
-                    Phone
-                  </p>
-                  <a
-                    href="tel:9723107252"
-                    className="mt-2 block text-lg font-semibold text-slate-700 transition hover:text-blue-700"
-                  >
-                    (972) 310-7252
-                  </a>
-                </div>
-              </div>
-
-              <div className="flex items-center gap-5">
-                <div className="flex h-14 w-14 items-center justify-center rounded-full bg-slate-100 text-blue-700">
-                  <CalendarDays className="h-6 w-6" />
-                </div>
-
-                <div>
-                  <p className="text-sm font-semibold uppercase tracking-[0.25em] text-blue-700">
-                    Schedule a Call
-                  </p>
-                  <p className="mt-2 text-lg font-medium text-slate-700">
-                    30-minute discovery call
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div className="mt-10">
-              <Link
-                href="/lead"
-                className="inline-flex items-center justify-center rounded-full bg-slate-950 px-8 py-4 text-base font-semibold !text-white shadow-lg shadow-slate-950/20 transition hover:bg-blue-700 hover:!text-white"
-              >
-                Schedule Your Free Discovery Call
-              </Link>
-            </div>
-
-            <p className="mt-12 text-base font-medium text-slate-600">
-              Confidential. Strategic. Built Around You.
-            </p>
-          </div>
-        </section>import Link from "next/link";
 import { SiteHeader } from "@/components/site-header";
 
 function MailIcon() {
@@ -237,10 +136,6 @@ export default function ContactPage() {
             </p>
           </div>
         </section>
-      </main>
-    </div>
-  );
-}
       </main>
     </div>
   );
