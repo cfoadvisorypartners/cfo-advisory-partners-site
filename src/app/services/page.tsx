@@ -17,42 +17,42 @@ export default function ServicesPage() {
     () => [
       {
         title: "Fractional CFO Leadership",
-        subtitle: "CFO-level guidance without the overhead",
+        subtitle: "CFO-Level Guidance—Without the Overhead",
         description:
           "Get experienced financial leadership to help with cash flow, profitability, forecasting, and better decision-making.",
         image: "/images/services-page/cfo-advising.png",
       },
       {
         title: "Accounting Framework",
-        subtitle: "Clean accounts. Consistent processes. Reliable reporting.",
+        subtitle: "Clean Accounts. Consistent Processes. Reliable Reporting.",
         description:
           "Build the financial structure your business needs so reporting becomes accurate, useful, and consistent.",
         image: "/images/services-page/accounting-framework.png",
       },
       {
         title: "Monthly Cadence",
-        subtitle: "Close monthly. Know where you stand.",
+        subtitle: "Close Monthly. Ontime Financials. Know Where You Stand.",
         description:
           "Create a reliable month-end close process so you are not waiting weeks to understand performance.",
         image: "/images/services-page/monthly-reporting.png",
       },
       {
         title: "Cash Flow & Profitability",
-        subtitle: "Find out what is really driving profit",
+        subtitle: "Find Out What’s Really Driving Profit",
         description:
           "Understand where cash is going, what is creating margin pressure, and what decisions need attention.",
         image: "/images/services-page/bookkeeping.png",
       },
       {
         title: "Controller Services",
-        subtitle: "Financial oversight without a full-time hire",
+        subtitle: "Financial Oversight Without a Full-Time Hire",
         description:
           "Add controller-level support to improve accuracy, accountability, process, and reporting discipline.",
         image: "/images/services-page/controller-services.png",
       },
       {
         title: "Payroll Support",
-        subtitle: "Keep payroll connected to financial visibility",
+        subtitle: "Keep Payroll Connected to Financial Visibility",
         description:
           "Improve payroll oversight so labor costs, timing, and reporting are better connected to the business.",
         image: "/images/services-page/payroll.png",
@@ -62,6 +62,7 @@ export default function ServicesPage() {
   );
 
   const [activeIndex, setActiveIndex] = useState(0);
+  const activeService = services[activeIndex];
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -70,8 +71,6 @@ export default function ServicesPage() {
 
     return () => clearInterval(interval);
   }, [services.length]);
-
-  const activeService = services[activeIndex];
 
   return (
     <div className="min-h-screen bg-stone-50 text-slate-900">
@@ -102,7 +101,7 @@ export default function ServicesPage() {
                     key={service.title}
                     type="button"
                     onClick={() => setActiveIndex(index)}
-                    className={`rounded-[1.5rem] p-5 text-left transition-all ${
+                    className={`rounded-[1.5rem] p-5 text-left transition-all duration-500 ${
                       isActive
                         ? "bg-slate-950 text-white shadow-xl shadow-slate-900/20"
                         : "bg-white text-slate-900 shadow-sm hover:bg-slate-100"
@@ -110,7 +109,7 @@ export default function ServicesPage() {
                   >
                     <h2 className="text-lg font-semibold">{service.title}</h2>
                     <p
-                      className={`mt-2 text-sm leading-6 ${
+                      className={`mt-2 text-sm leading-6 transition-colors duration-500 ${
                         isActive ? "text-slate-200" : "text-slate-600"
                       }`}
                     >
@@ -125,12 +124,13 @@ export default function ServicesPage() {
           <div className="overflow-hidden rounded-[2rem] bg-white shadow-2xl shadow-slate-900/10 ring-1 ring-slate-200">
             <div className="relative flex h-[560px] items-center justify-center bg-white p-6">
               <img
+                key={activeService.image}
                 src={activeService.image}
                 alt={activeService.title}
-                className="max-h-full max-w-full object-contain"
+                className="max-h-full max-w-full object-contain transition-opacity duration-500"
               />
 
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-slate-950/80 to-transparent p-8 text-white">
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-slate-950/85 via-slate-950/45 to-transparent p-8 text-white">
                 <p className="text-sm font-semibold uppercase tracking-[0.25em] text-orange-300">
                   {activeService.title}
                 </p>
