@@ -2,8 +2,8 @@
 
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
-import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
+import { SiteHeader } from "@/components/site-header";
 
 type ServiceItem = {
   title: string;
@@ -77,8 +77,8 @@ export default function ServicesPage() {
     <div className="min-h-screen bg-stone-50 text-slate-900">
       <SiteHeader />
 
-      <main className="mx-auto max-w-7xl px-6 py-14 lg:px-10">
-        <section className="grid items-center gap-10 lg:grid-cols-[0.95fr_1.05fr]">
+      <main className="mx-auto max-w-7xl px-6 py-12 lg:px-10">
+        <section className="grid items-center gap-10 lg:grid-cols-[0.9fr_1.1fr]">
           <div>
             <p className="text-sm font-semibold uppercase tracking-[0.35em] text-blue-700">
               Services
@@ -88,12 +88,12 @@ export default function ServicesPage() {
               Build the structure behind better financial decisions.
             </h1>
 
-            <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600">
+            <p className="mt-5 max-w-2xl text-lg leading-8 text-slate-600">
               Our work helps leadership teams move from having numbers to
               actually having clarity.
             </p>
 
-            <div className="mt-10 grid gap-5 sm:grid-cols-2">
+            <div className="mt-8 grid gap-4 sm:grid-cols-2">
               {services.map((service, index) => {
                 const isActive = index === activeIndex;
 
@@ -102,7 +102,7 @@ export default function ServicesPage() {
                     key={service.title}
                     type="button"
                     onClick={() => setActiveIndex(index)}
-                    className={`rounded-[1.5rem] p-6 text-left transition-all ${
+                    className={`rounded-[1.5rem] p-5 text-left transition-all ${
                       isActive
                         ? "bg-slate-950 text-white shadow-xl shadow-slate-900/20"
                         : "bg-white text-slate-900 shadow-sm hover:bg-slate-100"
@@ -110,7 +110,7 @@ export default function ServicesPage() {
                   >
                     <h2 className="text-lg font-semibold">{service.title}</h2>
                     <p
-                      className={`mt-3 text-sm leading-6 ${
+                      className={`mt-2 text-sm leading-6 ${
                         isActive ? "text-slate-200" : "text-slate-600"
                       }`}
                     >
@@ -123,21 +123,14 @@ export default function ServicesPage() {
           </div>
 
           <div className="overflow-hidden rounded-[2rem] bg-white shadow-2xl shadow-slate-900/10 ring-1 ring-slate-200">
-            <div className="relative h-[420px] bg-slate-100">
-              {services.map((service, index) => (
-                <img
-                  key={service.image}
-                  src={service.image}
-                  alt={service.title}
-                  className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 ${
-                    index === activeIndex ? "opacity-100" : "opacity-0"
-                  }`}
-                />
-              ))}
+            <div className="relative flex h-[560px] items-center justify-center bg-white p-6">
+              <img
+                src={activeService.image}
+                alt={activeService.title}
+                className="max-h-full max-w-full object-contain"
+              />
 
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/55 via-slate-950/10 to-transparent" />
-
-              <div className="absolute bottom-6 left-6 right-6 text-white">
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-slate-950/80 to-transparent p-8 text-white">
                 <p className="text-sm font-semibold uppercase tracking-[0.25em] text-orange-300">
                   {activeService.title}
                 </p>
@@ -154,7 +147,7 @@ export default function ServicesPage() {
           </div>
         </section>
 
-        <section className="mx-auto mt-16 max-w-4xl rounded-[2rem] bg-white p-10 text-center shadow-sm ring-1 ring-slate-200">
+        <section className="mx-auto mt-14 max-w-4xl rounded-[2rem] bg-white p-10 text-center shadow-sm ring-1 ring-slate-200">
           <h2 className="text-3xl font-semibold tracking-tight text-slate-950">
             Ready to bring clarity to your financial decisions?
           </h2>
