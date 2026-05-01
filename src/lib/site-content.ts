@@ -90,7 +90,7 @@ export const leadPageBullets = [
 ];
 
 export const revenueRanges = [
-  "$1M - $5M"
+  "$1M - $5M",
   "$5M - $10M",
   "$10M - $20M",
   "$20M - $40M",
