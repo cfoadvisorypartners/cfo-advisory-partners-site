@@ -3,7 +3,6 @@ export const siteContent = {
   tagline: "Stop Guessing. Start Growing.",
   primaryCtaLabel: "Schedule Your Free Discovery Call",
   contactEmail: "info@cfoadvisorypartners.net",
-  calendlyUrl: "https://calendly.com/john-cfoadvisorypartners/30min",
   headline: "Know What Your Numbers Are Really Telling You",
   subheadline:
     "We Help Turn Financial Noise Into Clear Direction",

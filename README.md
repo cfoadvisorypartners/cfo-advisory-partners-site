@@ -1,5 +1,18 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+## Lead form email
+
+The `/lead` form submits to `/api/leads` and sends the notification email with
+Resend. Set these environment variables in your hosting provider:
+
+```bash
+RESEND_API_KEY=your_resend_api_key
+LEAD_NOTIFICATION_TO=info@cfoadvisorypartners.net
+LEAD_NOTIFICATION_FROM="CFO Advisory Partners <leads@cfoadvisorypartners.net>"
+```
+
+`LEAD_NOTIFICATION_FROM` must be a verified sender/domain in Resend.
+
 ## Getting Started
 
 First, run the development server:
