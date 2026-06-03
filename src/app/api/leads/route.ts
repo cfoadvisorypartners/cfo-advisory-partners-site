@@ -30,6 +30,10 @@ function createLeadEmail(payload: LeadPayload) {
     .join("\n");
 }
 
+function getEnv(name: string, fallbackName?: string) {
+  return process.env[name] || (fallbackName ? process.env[fallbackName] : "");
+}
+
 export async function POST(request: Request) {
   const formData = await request.formData();
   const payload: LeadPayload = {
@@ -48,10 +52,12 @@ export async function POST(request: Request) {
     );
   }
 
-  const apiKey = process.env.RESEND_API_KEY;
-  const to = process.env.LEAD_NOTIFICATION_TO || siteContent.contactEmail;
+  const apiKey = getEnv("RESEND_API_KEY", "resend_api_key");
+  const to =
+    getEnv("LEAD_NOTIFICATION_TO", "lead_notification_to") ||
+    siteContent.contactEmail;
   const from =
-    process.env.LEAD_NOTIFICATION_FROM ||
+    getEnv("LEAD_NOTIFICATION_FROM", "lead_notification_from") ||
     "CFO Advisory Partners <onboarding@resend.dev>";
 
   if (!apiKey) {
@@ -77,6 +83,11 @@ export async function POST(request: Request) {
   });
 
   if (!response.ok) {
+    console.error("Resend lead notification failed", {
+      status: response.status,
+      body: await response.text(),
+    });
+
     return Response.json(
       { error: "Lead notification email could not be sent." },
       { status: 502 }
