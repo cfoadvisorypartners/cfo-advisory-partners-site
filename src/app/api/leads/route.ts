@@ -58,7 +58,7 @@ export async function POST(request: Request) {
     siteContent.contactEmail;
   const from =
     getEnv("LEAD_NOTIFICATION_FROM", "lead_notification_from") ||
-    "CFO Advisory Partners <onboarding@resend.dev>";
+    `CFO Advisory Partners <${siteContent.contactEmail}>`;
 
   if (!apiKey) {
     return Response.json(

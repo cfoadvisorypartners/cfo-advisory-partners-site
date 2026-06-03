@@ -8,7 +8,7 @@ Resend. Set these environment variables in your hosting provider:
 ```bash
 RESEND_API_KEY=your_resend_api_key
 LEAD_NOTIFICATION_TO=info@cfoadvisorypartners.net
-LEAD_NOTIFICATION_FROM="CFO Advisory Partners <leads@cfoadvisorypartners.net>"
+LEAD_NOTIFICATION_FROM="CFO Advisory Partners <info@cfoadvisorypartners.net>"
 ```
 
 `LEAD_NOTIFICATION_FROM` must be a verified sender/domain in Resend.
