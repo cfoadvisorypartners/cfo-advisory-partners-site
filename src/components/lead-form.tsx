@@ -1,11 +1,13 @@
 "use client";
 
 import { type FormEvent, useState } from "react";
+import { useRouter } from "next/navigation";
 import { revenueRanges } from "@/lib/site-content";
 
-type SubmitStatus = "idle" | "submitting" | "success" | "error";
+type SubmitStatus = "idle" | "submitting" | "error";
 
 export function LeadForm() {
+  const router = useRouter();
   const [status, setStatus] = useState<SubmitStatus>("idle");
   const [errorMessage, setErrorMessage] = useState("");
 
@@ -33,7 +35,7 @@ export function LeadForm() {
       fbq?.("track", "Lead");
 
       form.reset();
-      setStatus("success");
+      router.push("/thank-you");
     } catch {
       setErrorMessage(
         "Something went wrong. Please try again, or email info@cfoadvisorypartners.net."
@@ -46,16 +48,6 @@ export function LeadForm() {
 
   return (
     <div className="rounded-xl bg-white p-6 text-slate-900">
-      {status === "success" ? (
-        <div className="rounded-lg border border-emerald-200 bg-emerald-50 p-4 text-sm leading-6 text-emerald-950">
-          <p className="font-semibold">Thank you. Your request has been received.</p>
-          <p className="mt-1">
-            We will reach out within 24 hours to schedule your complimentary
-            30-minute discovery call.
-          </p>
-        </div>
-      ) : null}
-
       <form onSubmit={handleSubmit} className="mt-4 grid gap-4 first:mt-0">
         <p className="text-sm leading-6 text-slate-700">
           Submit your information and we will reach out within 24 hours to
