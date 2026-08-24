@@ -17,8 +17,8 @@ export default function ThankYouPage() {
           </h1>
 
           <p className="mt-7 text-lg leading-8 text-slate-600">
-            We will reach out within 24 hours to schedule your complimentary
-            30-minute discovery call.
+            We&apos;ll be in touch within one business day with the next step
+            and exactly what we need from you.
           </p>
 
           <div className="mt-10 flex flex-wrap gap-4">
