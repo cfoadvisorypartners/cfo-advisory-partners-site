@@ -3,6 +3,7 @@ export const siteContent = {
   tagline: "Stop Guessing. Start Growing.",
   primaryCtaLabel: "Schedule Your Free Discovery Call",
   contactEmail: "info@cfoadvisorypartners.net",
+  phone: "(972) 310-7252",
   headline: "Know What Your Numbers Are Really Telling You",
   subheadline:
     "We Help Turn Financial Noise Into Clear Direction",
