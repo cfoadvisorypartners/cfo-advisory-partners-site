@@ -226,20 +226,21 @@ export default function AssessmentPage() {
                 $50,000+
               </div>
               <p className="mt-3 text-base text-white/70">
-                found in year one for Remington Builders
+                found in year one for a residential builder
               </p>
             </div>
-            <blockquote className="text-xl font-medium leading-8 tracking-[-0.012em] sm:text-[1.4rem] sm:leading-9">
-              &ldquo;We went into it thinking the books were basically fine. They
-              weren&apos;t. Seeing which jobs actually made money changed how we
-              bid.&rdquo;
-              {/* TODO: replace with the real named contact once written permission
-                  is in hand. If permission isn't given, cut the quote and keep
-                  the figure with the attribution line below. */}
-              <footer className="mt-5 text-sm font-normal not-italic text-white/55">
-                — Remington Builders
-              </footer>
-            </blockquote>
+            {/* No client quote here by design. The client is not named and has not
+                approved a testimonial, so this block is written in John's own
+                voice describing work he did — a claim he can substantiate — rather
+                than words attributed to a customer. Do not add a quote unless the
+                client actually said it and has approved it in writing. */}
+            <div className="text-xl font-medium leading-8 tracking-[-0.012em] sm:text-[1.4rem] sm:leading-9">
+              He was certain his books were fine. They weren&apos;t — most of what
+              we found was sitting in jobs he&apos;d assumed were profitable.
+              <p className="mt-5 text-sm font-normal text-white/55">
+                Client not named at their preference.
+              </p>
+            </div>
           </div>
         </div>
         <p className="mt-5 max-w-3xl text-sm leading-6 text-[#7A8494]">
