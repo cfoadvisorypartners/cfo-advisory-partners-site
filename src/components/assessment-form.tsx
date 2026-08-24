@@ -57,15 +57,17 @@ export function AssessmentForm() {
   }
 
   const isSubmitting = status === "submitting";
+  const label = "mb-1.5 block text-sm font-semibold text-[#27405C]";
   const field =
-    "w-full rounded-lg border border-slate-300 p-3 text-slate-900 outline-none transition focus:border-blue-700 focus:ring-2 focus:ring-blue-700/20";
+    "w-full rounded-lg border border-[#D6DBE1] bg-white p-3 text-[#27405C] outline-none transition placeholder:text-[#9AA3AF] focus:border-[#3F8E8C] focus:ring-2 focus:ring-[#3F8E8C]/25";
 
   return (
-    <div className="rounded-2xl bg-white p-7 shadow-2xl shadow-slate-950/30">
-      <h2 className="text-xl font-semibold tracking-tight text-slate-950">
+    <div className="rounded-2xl border border-[#E3E6EA] bg-white p-7 shadow-[0_18px_50px_-24px_rgba(39,64,92,0.35)]">
+      <h2 className="text-xl font-semibold tracking-[-0.012em] text-[#27405C]">
         Request your assessment
       </h2>
-      <p className="mt-2 text-sm leading-6 text-slate-600">
+      <div className="mt-3 h-[3px] w-[52px] bg-[#3F8E8C]" />
+      <p className="mt-4 text-sm leading-6 text-[#4A5666]">
         Tell us a little about the business. If you&apos;re a fit, we&apos;ll send the
         short list of what we need to get started.
       </p>
@@ -75,28 +77,28 @@ export function AssessmentForm() {
         <input type="hidden" name="formName" value="assessment" readOnly />
 
         <div>
-          <label htmlFor="name" className="mb-1.5 block text-sm font-semibold text-slate-900">
+          <label htmlFor="name" className={label}>
             Your name
           </label>
           <input id="name" name="name" className={field} required autoComplete="name" />
         </div>
 
         <div>
-          <label htmlFor="company" className="mb-1.5 block text-sm font-semibold text-slate-900">
+          <label htmlFor="company" className={label}>
             Company
           </label>
           <input id="company" name="company" className={field} required autoComplete="organization" />
         </div>
 
         <div>
-          <label htmlFor="email" className="mb-1.5 block text-sm font-semibold text-slate-900">
+          <label htmlFor="email" className={label}>
             Work email
           </label>
           <input id="email" name="email" type="email" className={field} required autoComplete="email" />
         </div>
 
         <div>
-          <label htmlFor="revenueRange" className="mb-1.5 block text-sm font-semibold text-slate-900">
+          <label htmlFor="revenueRange" className={label}>
             Annual revenue
           </label>
           <select id="revenueRange" name="revenueRange" className={field} defaultValue="" required>
@@ -112,14 +114,14 @@ export function AssessmentForm() {
         </div>
 
         <div>
-          <label htmlFor="phone" className="mb-1.5 block text-sm font-semibold text-slate-900">
-            Phone <span className="font-normal text-slate-500">(optional)</span>
+          <label htmlFor="phone" className={label}>
+            Phone <span className="font-normal text-[#7A8494]">(optional)</span>
           </label>
           <input id="phone" name="phone" type="tel" className={field} autoComplete="tel" />
         </div>
 
         {status === "error" ? (
-          <p className="text-sm font-medium text-red-700" role="alert">
+          <p className="text-sm font-medium text-[#B4342C]" role="alert">
             {errorMessage}
           </p>
         ) : null}
@@ -127,12 +129,12 @@ export function AssessmentForm() {
         <button
           type="submit"
           disabled={isSubmitting}
-          className="mt-1 rounded-full bg-slate-950 px-6 py-4 text-base font-semibold !text-white transition hover:bg-blue-700 disabled:cursor-not-allowed disabled:bg-slate-500"
+          className="mt-1 rounded-full bg-[#27405C] px-6 py-4 text-base font-bold !text-white transition hover:bg-[#33506F] disabled:cursor-not-allowed disabled:bg-[#9AA3AF]"
         >
           {isSubmitting ? "Sending..." : "Start my free assessment →"}
         </button>
 
-        <p className="text-xs leading-5 text-slate-500">
+        <p className="text-xs leading-5 text-[#7A8494]">
           We use your details only to run the assessment and contact you about it.
           We never sell or share your information.
         </p>

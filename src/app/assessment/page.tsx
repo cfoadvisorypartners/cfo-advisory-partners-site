@@ -1,7 +1,23 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
+import localFont from "next/font/local";
 import { AssessmentForm } from "@/components/assessment-form";
 import { siteContent } from "@/lib/site-content";
+
+// The ad creatives are set in Inter. Self-hosted here (not next/font/google)
+// so the production build never depends on reaching fonts.googleapis.com,
+// and scoped to this page so nothing else on the site shifts.
+const inter = localFont({
+  src: [
+    { path: "./fonts/inter-400.woff2", weight: "400", style: "normal" },
+    { path: "./fonts/inter-500.woff2", weight: "500", style: "normal" },
+    { path: "./fonts/inter-600.woff2", weight: "600", style: "normal" },
+    { path: "./fonts/inter-700.woff2", weight: "700", style: "normal" },
+  ],
+  display: "swap",
+  fallback: ["-apple-system", "Helvetica Neue", "Arial", "sans-serif"],
+});
 
 export const metadata: Metadata = {
   title: "Free 30-Day Financial Assessment | CFO Advisory Partners",
@@ -59,152 +75,174 @@ const faqs = [
   },
 ];
 
+const CTA = "Start my free assessment";
+
 export default function AssessmentPage() {
   return (
-    <div className="min-h-screen bg-white text-slate-900">
-      {/* Hero */}
-      <div className="bg-slate-950 text-white">
-        <div className="mx-auto max-w-7xl px-6 lg:px-10">
-          <header className="flex items-center justify-between border-b border-white/10 py-5">
-            <div>
-              <div className="text-xs font-semibold uppercase tracking-[0.35em] text-white">
-                {siteContent.companyName}
-              </div>
-              <div className="mt-1 text-sm text-teal-300">
-                Fractional CFO for owner-operated businesses
-              </div>
-            </div>
-          </header>
-
-          <div className="grid gap-14 py-16 lg:grid-cols-[1.15fr_0.85fr] lg:py-20">
-            <div>
-              <span className="inline-block rounded-full border border-teal-300/40 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] text-teal-300">
-                For owner-operated businesses doing $1M–$10M
-              </span>
-
-              <h1 className="mt-6 text-4xl font-semibold leading-[1.1] tracking-tight sm:text-5xl lg:text-[3.4rem]">
-                Find out what your numbers are hiding —{" "}
-                <span className="text-teal-300">before you pay us anything.</span>
-              </h1>
-
-              <p className="mt-6 max-w-xl text-lg leading-8 text-slate-300">
-                A <strong className="font-semibold text-white">free 30-day financial assessment</strong>.
-                We go through your books the way a CFO would, then show you exactly
-                where margin and cash are leaking. You keep the findings whether or
-                not you hire us.
-              </p>
-
-              <ul className="mt-8 space-y-3">
-                {[
-                  "No fee, no contract, no upfront commitment",
-                  "You see real findings before any money changes hands",
-                  "If we're not the right fit, we'll tell you and you'll still have the analysis",
-                ].map((item) => (
-                  <li key={item} className="flex gap-3 text-base text-slate-200">
-                    <span className="mt-2 h-2 w-2 flex-none rounded-full bg-teal-300" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-
-              <Link
-                href="#apply"
-                className="mt-9 inline-flex items-center justify-center rounded-full bg-teal-300 px-8 py-4 text-base font-semibold text-slate-950 transition hover:bg-teal-200"
-              >
-                Start my free assessment →
-              </Link>
-
-              <p className="mt-4 text-sm text-slate-400">
-                Takes about 3 minutes to request. We reply within one business day.
-              </p>
-            </div>
-
-            <div id="apply" className="scroll-mt-8">
-              <AssessmentForm />
-            </div>
+    <div className={`${inter.className} min-h-screen bg-white text-[#27405C]`}>
+      {/* Header ------------------------------------------------------------ */}
+      <header className="border-b border-[#E3E6EA]">
+        <div className="mx-auto flex max-w-6xl flex-wrap items-baseline justify-between gap-x-6 gap-y-1 px-6 py-6 lg:px-10">
+          <div className="text-[13px] font-bold uppercase tracking-[0.17em]">
+            {siteContent.companyName}
+          </div>
+          <div className="text-[13px] text-[#7A8494]">
+            Fractional CFO for owner-operated businesses
           </div>
         </div>
-      </div>
+      </header>
 
-      {/* Qualification */}
-      <section className="mx-auto max-w-7xl px-6 py-20 lg:px-10">
-        <h2 className="text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
-          This is built for one kind of business
-        </h2>
-        <p className="mt-4 max-w-2xl text-lg leading-8 text-slate-600">
-          If most of these sound like your week, the assessment will find
-          something. If none of them do, we&apos;re probably not the right fit — and
-          we&apos;d rather say so now.
-        </p>
-
-        <div className="mt-10 grid gap-4 sm:grid-cols-2">
-          {qualifiers.map((item) => (
-            <div
-              key={item}
-              className="flex gap-4 rounded-xl border border-slate-200 bg-white p-5 text-base leading-7 text-slate-700"
-            >
-              <span className="mt-0.5 flex h-6 w-6 flex-none items-center justify-center rounded-full bg-teal-600 text-sm font-bold text-white">
-                ✓
-              </span>
-              {item}
+      {/* Hero -------------------------------------------------------------- */}
+      <section className="mx-auto max-w-6xl px-6 pb-20 pt-14 lg:px-10 lg:pt-20">
+        <div className="grid gap-14 lg:grid-cols-[1.04fr_0.96fr] lg:gap-16">
+          <div>
+            <div className="text-[13px] font-bold uppercase tracking-[0.17em] text-[#3F8E8C]">
+              For owner-operated businesses doing $1M–$10M
             </div>
-          ))}
+            <div className="mt-4 h-[3px] w-[84px] bg-[#3F8E8C]" />
+
+            <h1 className="mt-9 text-[2.35rem] font-medium leading-[1.22] tracking-[-0.017em] sm:text-[2.9rem] lg:text-[3.15rem]">
+              Find out what your numbers are hiding —{" "}
+              <span className="text-[#3F8E8C]">before you pay us anything.</span>
+            </h1>
+
+            <p className="mt-7 max-w-xl text-[1.0625rem] leading-8 text-[#4A5666]">
+              A <strong className="font-semibold text-[#27405C]">free 30-day financial assessment</strong>.
+              We go through your books the way a CFO would, then show you exactly
+              where margin and cash are leaking. You keep the findings whether or
+              not you hire us.
+            </p>
+
+            <ul className="mt-8 space-y-3.5">
+              {[
+                "No fee, no contract, no upfront commitment",
+                "You see real findings before any money changes hands",
+                "If we're not the right fit, we'll tell you and you'll still have the analysis",
+              ].map((item) => (
+                <li key={item} className="flex gap-3.5 text-[1.0625rem] leading-7 text-[#4A5666]">
+                  <span className="mt-[0.6rem] h-[7px] w-[7px] flex-none rounded-full bg-[#3F8E8C]" />
+                  {item}
+                </li>
+              ))}
+            </ul>
+
+            <div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-4">
+              <Link
+                href="#apply"
+                className="inline-flex items-center justify-center gap-3 rounded-full bg-[#27405C] px-9 py-4 text-base font-bold !text-white transition hover:bg-[#33506F]"
+              >
+                {CTA} <span aria-hidden>→</span>
+              </Link>
+              <p className="max-w-[15rem] text-sm leading-6 text-[#7A8494]">
+                Takes about 3 minutes. We reply within one business day.
+              </p>
+            </div>
+
+            {/* Byline — same face, same details as the ad they clicked. */}
+            <div className="mt-12 flex items-center gap-4 border-t border-[#E3E6EA] pt-7">
+              <Image
+                src="/images/john-moss.jpg"
+                alt="John Moss, CFO Advisory Partners"
+                width={120}
+                height={120}
+                className="h-14 w-14 flex-none rounded-full object-cover"
+              />
+              <div className="text-sm leading-6">
+                <div className="font-semibold text-[#27405C]">John Moss</div>
+                <div className="text-[#7A8494]">
+                  {siteContent.phone} · {siteContent.contactEmail}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div id="apply" className="scroll-mt-8">
+            <AssessmentForm />
+          </div>
         </div>
       </section>
 
-      {/* Process */}
-      <section className="bg-slate-50 py-20">
-        <div className="mx-auto max-w-7xl px-6 lg:px-10">
-          <h2 className="text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
-            What actually happens
+      {/* Qualification ----------------------------------------------------- */}
+      <section className="border-t border-[#E3E6EA] py-20">
+        <div className="mx-auto max-w-6xl px-6 lg:px-10">
+          <h2 className="text-[1.85rem] font-medium tracking-[-0.017em] sm:text-[2.15rem]">
+            This is built for one kind of business
           </h2>
-          <p className="mt-4 max-w-2xl text-lg leading-8 text-slate-600">
-            No mystery, no discovery-call runaround. Here&apos;s the whole thing.
+          <p className="mt-4 max-w-2xl text-[1.0625rem] leading-8 text-[#4A5666]">
+            If most of these sound like your week, the assessment will find
+            something. If none of them do, we&apos;re probably not the right fit — and
+            we&apos;d rather say so now.
           </p>
 
-          <div className="mt-12 grid gap-10 md:grid-cols-3">
-            {steps.map((step) => (
-              <div key={step.when}>
-                <div className="text-xs font-bold uppercase tracking-[0.18em] text-teal-700">
-                  {step.when}
-                </div>
-                <div className="mt-3 h-[3px] w-11 rounded bg-gradient-to-r from-teal-600 to-teal-300" />
-                <h3 className="mt-5 text-xl font-semibold tracking-tight text-slate-950">
-                  {step.title}
-                </h3>
-                <p className="mt-3 text-base leading-7 text-slate-600">{step.body}</p>
+          <div className="mt-10 grid gap-4 sm:grid-cols-2">
+            {qualifiers.map((item) => (
+              <div
+                key={item}
+                className="flex gap-4 rounded-xl border border-[#E3E6EA] bg-white p-5 text-[1.0625rem] leading-7 text-[#4A5666]"
+              >
+                <span className="mt-0.5 flex h-6 w-6 flex-none items-center justify-center rounded-full bg-[#3F8E8C] text-sm font-bold text-white">
+                  ✓
+                </span>
+                {item}
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Proof */}
-      <section className="mx-auto max-w-7xl px-6 py-20 lg:px-10">
-        <div className="rounded-2xl bg-slate-950 px-8 py-12 text-white sm:px-14">
+      {/* Process ----------------------------------------------------------- */}
+      <section className="border-t border-[#E3E6EA] bg-[#F6F7F9] py-20">
+        <div className="mx-auto max-w-6xl px-6 lg:px-10">
+          <h2 className="text-[1.85rem] font-medium tracking-[-0.017em] sm:text-[2.15rem]">
+            What actually happens
+          </h2>
+          <p className="mt-4 max-w-2xl text-[1.0625rem] leading-8 text-[#4A5666]">
+            No mystery, no discovery-call runaround. Here&apos;s the whole thing.
+          </p>
+
+          <div className="mt-12 grid gap-10 md:grid-cols-3">
+            {steps.map((step) => (
+              <div key={step.when}>
+                <div className="text-[13px] font-bold uppercase tracking-[0.17em] text-[#3F8E8C]">
+                  {step.when}
+                </div>
+                <div className="mt-4 h-[3px] w-[52px] bg-[#3F8E8C]" />
+                <h3 className="mt-6 text-xl font-semibold tracking-[-0.012em]">
+                  {step.title}
+                </h3>
+                <p className="mt-3 text-base leading-7 text-[#4A5666]">{step.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Proof ------------------------------------------------------------- */}
+      <section className="mx-auto max-w-6xl px-6 py-20 lg:px-10">
+        <div className="rounded-2xl bg-[#27405C] px-8 py-12 text-white sm:px-14">
           <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-center">
             <div>
-              <div className="text-5xl font-bold tracking-tight text-teal-300 sm:text-6xl">
+              <div className="text-5xl font-bold tracking-[-0.02em] text-[#7FC9C6] sm:text-6xl">
                 $50,000+
               </div>
-              <p className="mt-2 text-base text-slate-300">
+              <p className="mt-3 text-base text-white/70">
                 found in year one for Remington Builders
               </p>
             </div>
-            <blockquote className="text-xl font-medium leading-8 tracking-tight sm:text-2xl">
+            <blockquote className="text-xl font-medium leading-8 tracking-[-0.012em] sm:text-[1.4rem] sm:leading-9">
               &ldquo;We went into it thinking the books were basically fine. They
               weren&apos;t. Seeing which jobs actually made money changed how we
               bid.&rdquo;
               {/* TODO: replace with the real named contact once written permission
                   is in hand. If permission isn't given, cut the quote and keep
                   the figure with the attribution line below. */}
-              <footer className="mt-5 text-sm font-normal not-italic text-slate-400">
+              <footer className="mt-5 text-sm font-normal not-italic text-white/55">
                 — Remington Builders
               </footer>
             </blockquote>
           </div>
         </div>
-        <p className="mt-5 max-w-3xl text-sm leading-6 text-slate-500">
+        <p className="mt-5 max-w-3xl text-sm leading-6 text-[#7A8494]">
           This reflects one client engagement. What an assessment finds depends
           entirely on the business — its size, its records, and how much structure
           already exists. We&apos;ll tell you honestly if we don&apos;t think there&apos;s
@@ -212,65 +250,80 @@ export default function AssessmentPage() {
         </p>
       </section>
 
-      {/* Differentiator */}
-      <section className="bg-slate-50 py-16">
-        <div className="mx-auto max-w-3xl px-6 lg:px-10">
-          <h2 className="text-3xl font-semibold tracking-tight text-slate-950">
-            Why a CFO who shows up daily
-          </h2>
-          <p className="mt-4 text-lg leading-8 text-slate-600">
-            Most fractional CFOs check in quarterly. By the time the numbers land,
-            the decision has already been made. We&apos;re in it daily — you ask a
-            question, you get an answer the same day, and the reporting keeps pace
-            with the business instead of trailing a quarter behind it.
-          </p>
+      {/* Differentiator ---------------------------------------------------- */}
+      <section className="border-y border-[#E3E6EA] bg-[#F6F7F9] py-20">
+        <div className="mx-auto grid max-w-5xl gap-12 px-6 md:grid-cols-[auto_1fr] md:items-center lg:px-10">
+          <Image
+            src="/images/john-moss.jpg"
+            alt="John Moss, CFO Advisory Partners"
+            width={480}
+            height={480}
+            className="h-48 w-48 flex-none rounded-2xl object-cover md:h-56 md:w-56"
+          />
+          <div>
+            <div className="text-[13px] font-bold uppercase tracking-[0.17em] text-[#3F8E8C]">
+              Who you actually work with
+            </div>
+            <h2 className="mt-4 text-[1.85rem] font-medium tracking-[-0.017em] sm:text-[2.15rem]">
+              Why a CFO who shows up daily
+            </h2>
+            <p className="mt-4 text-[1.0625rem] leading-8 text-[#4A5666]">
+              Most fractional CFOs check in quarterly. By the time the numbers land,
+              the decision has already been made. I&apos;m in it daily — you ask a
+              question, you get an answer the same day, and the reporting keeps pace
+              with the business instead of trailing a quarter behind it.
+            </p>
+            <p className="mt-5 text-sm leading-6 text-[#7A8494]">
+              John Moss · {siteContent.phone} · {siteContent.contactEmail}
+            </p>
+          </div>
         </div>
       </section>
 
-      {/* FAQ */}
+      {/* FAQ --------------------------------------------------------------- */}
       <section className="mx-auto max-w-3xl px-6 py-20 lg:px-10">
-        <h2 className="text-3xl font-semibold tracking-tight text-slate-950">
+        <h2 className="text-[1.85rem] font-medium tracking-[-0.017em] sm:text-[2.15rem]">
           Honest answers
         </h2>
-        <div className="mt-8 border-t border-slate-200">
+        <div className="mt-8 border-t border-[#E3E6EA]">
           {faqs.map((faq, index) => (
             <details
               key={faq.q}
               open={index === 0}
-              className="group border-b border-slate-200 py-6"
+              className="group border-b border-[#E3E6EA] py-6"
             >
-              <summary className="flex cursor-pointer list-none items-center justify-between gap-6 text-lg font-semibold tracking-tight text-slate-950">
+              <summary className="flex cursor-pointer list-none items-center justify-between gap-6 text-lg font-semibold tracking-[-0.012em]">
                 {faq.q}
-                <span className="flex-none text-2xl font-normal text-teal-600 transition group-open:rotate-45">
+                <span className="flex-none text-2xl font-normal text-[#3F8E8C] transition group-open:rotate-45">
                   +
                 </span>
               </summary>
-              <p className="mt-4 text-base leading-7 text-slate-600">{faq.a}</p>
+              <p className="mt-4 text-base leading-7 text-[#4A5666]">{faq.a}</p>
             </details>
           ))}
         </div>
       </section>
 
-      {/* Close */}
-      <section className="bg-slate-950 py-20 text-center text-white">
+      {/* Close ------------------------------------------------------------- */}
+      <section className="bg-[#27405C] py-20 text-center text-white">
         <div className="mx-auto max-w-3xl px-6">
-          <h2 className="text-3xl font-semibold leading-tight tracking-tight sm:text-4xl">
+          <h2 className="text-[1.85rem] font-medium leading-[1.25] tracking-[-0.017em] sm:text-[2.3rem]">
             Thirty days from now, you could actually know your numbers.
           </h2>
-          <p className="mt-4 text-lg text-slate-300">
+          <p className="mt-5 text-lg leading-8 text-white/70">
             Or you could be running the business off the bank balance for another
             quarter.
           </p>
           <Link
             href="#apply"
-            className="mt-9 inline-flex items-center justify-center rounded-full bg-teal-300 px-8 py-4 text-base font-semibold text-slate-950 transition hover:bg-teal-200"
+            className="mt-10 inline-flex items-center justify-center gap-3 rounded-full bg-[#3F8E8C] px-9 py-4 text-base font-bold !text-white transition hover:bg-[#4EA5A2]"
           >
-            Start my free assessment →
+            {CTA} <span aria-hidden>→</span>
           </Link>
         </div>
       </section>
 
-      <footer className="bg-slate-950 py-8 text-center text-sm text-slate-500">
+      <footer className="bg-[#27405C] pb-10 text-center text-sm text-white/45">
         © {new Date().getFullYear()} {siteContent.companyName} · Fractional CFO for
         owner-operated businesses
       </footer>
