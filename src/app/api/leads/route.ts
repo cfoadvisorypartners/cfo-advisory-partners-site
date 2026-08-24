@@ -7,6 +7,8 @@ type LeadPayload = {
   phone: string;
   revenueRange: string;
   challenge: string;
+  source: string;
+  formName: string;
 };
 
 function getField(formData: FormData, key: keyof LeadPayload) {
@@ -23,6 +25,8 @@ function createLeadEmail(payload: LeadPayload) {
     ["Phone", payload.phone],
     ["Annual revenue range", payload.revenueRange],
     ["Financial challenge", payload.challenge],
+    ["Form", payload.formName],
+    ["Source", payload.source],
   ];
 
   return rows
@@ -43,6 +47,8 @@ export async function POST(request: Request) {
     phone: getField(formData, "phone"),
     revenueRange: getField(formData, "revenueRange"),
     challenge: getField(formData, "challenge"),
+    source: getField(formData, "source"),
+    formName: getField(formData, "formName") || "lead",
   };
 
   if (!payload.name || !payload.email) {
@@ -67,6 +73,11 @@ export async function POST(request: Request) {
     );
   }
 
+  const subject =
+    payload.formName === "assessment"
+      ? `Assessment request from ${payload.name}`
+      : `New discovery call request from ${payload.name}`;
+
   const response = await fetch("https://api.resend.com/emails", {
     method: "POST",
     headers: {
@@ -77,7 +88,7 @@ export async function POST(request: Request) {
       from,
       to,
       reply_to: payload.email,
-      subject: `New discovery call request from ${payload.name}`,
+      subject,
       text: createLeadEmail(payload),
     }),
   });

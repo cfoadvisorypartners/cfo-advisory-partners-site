@@ -95,3 +95,15 @@ export const revenueRanges = [
   "$20M - $40M",
   "$40M+",
 ];
+
+// Revenue bands used on the free-assessment page. Deliberately includes an
+// "Under $1M" option so people below the ICP self-identify rather than
+// consuming an assessment slot.
+export const assessmentRevenueRanges = [
+  "Under $1M",
+  "$1M - $2.5M",
+  "$2.5M - $5M",
+  "$5M - $7.5M",
+  "$7.5M - $10M",
+  "Over $10M",
+];
